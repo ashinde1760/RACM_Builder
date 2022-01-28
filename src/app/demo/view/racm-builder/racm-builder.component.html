@@ -1,1 +1,92 @@
-<p>racm-builder works!</p>
+<p-toast></p-toast>
+<div>
+<div>
+    <p-toolbar>
+        <div class="p-toolbar-group-left">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+        </div>
+        <div class="p-toolbar-group-center">
+            <h2>Risk Control Martix</h2>
+        </div>
+
+        <div class="p-toolbar-group-right">
+            <p-fileUpload mode="basic" label="import" chooseLabel="Import" name="" url=""></p-fileUpload>
+            </div>
+    </p-toolbar>
+</div>
+
+<div>
+<p-table [columns]="cols" [value]="racmInterfaces" [rowHover]="true" [rows]="7" [paginator]="true"
+[showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+[scrollable]="true" responsiveLayout="scroll" scrollHeight="350px">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let j of columns">{{rowData[j.field]}}</td>
+            <button pButton pRipple icon="pi pi-pencil" (click)="editRowData(rowData)" class="p-button-rounded" style="margin: 5px;"></button>
+            <button pButton pRipple icon="pi pi-trash" (click)="deleteRowData(rowData)" class="p-button-rounded p-button-danger" style="margin: 5px;"></button>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+
+</div>
+<div>
+    <p-dialog [style]="{width: '70%'}" [(visible)]="dialogBox" styleClass="p-fluid" [modal]="true" >
+        <ng-template pTemplate="content">
+        <!-- <div class="field">
+            <label for="name">Unique Ref</label>
+            <input type="text" pInputText id="uRef" [(ngModel)]="racmInterface.uRef" required autofocus />
+        </div> -->
+        <div class="p-grid" >
+            <div class="p-col-4 p-offset-1" style="border-radius: 1px solid black;">
+        <div class="field">
+            <label for="name">Objective</label>
+            <input type="text" pInputText id="objective" [(ngModel)]="racmInterface.objective" required autofocus />
+        </div>
+        <div >
+            <label for="name">Risk</label>
+            <p-dropdown [options]=riskOptions [(ngModel)]="selectedRisk" optionLabel="name" placeholder="Select Risk">
+            </p-dropdown>
+        </div>
+        <div >
+            <label for="name">Control</label>
+            <p-dropdown [options]=controlOptions [(ngModel)]="selectedControl" optionLabel="name" placeholder="Select Control">
+            </p-dropdown>
+        </div>
+        <div class="field">
+            <label for="name">frequency</label>
+            <input type="text" pInputText id="frequency" [(ngModel)]="racmInterface.frequency" required autofocus />
+        </div>
+    </div>
+
+        <div class="p-col-4 p-offset-1">
+            <div>
+            <label for="name">Control Types</label>
+            <p-dropdown [options]=controlTypesOptions [(ngModel)]="selectedControlTypes" optionLabel="name" placeholder="Select Control">
+            </p-dropdown>
+        </div>
+        <div >
+            <label for="name">Status</label>
+            <p-dropdown [options]=statusOptions [(ngModel)]="selectedStatus" optionLabel="name" placeholder="Select Status">
+            </p-dropdown>
+        </div>
+    </div>
+</div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button style="margin-top: 5px;" pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+            (click)="hideDialog()"></button>
+        <button style="margin-top: 5px;" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"
+            (click)="saveData()"></button>
+    </ng-template>
+    </p-dialog>
+</div>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

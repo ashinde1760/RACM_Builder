@@ -235,7 +235,9 @@ FullCalendarModule.registerPlugins([
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
+        AppCodeModule,
+        DialogModule,
+    
     ],
     declarations: [
         AppComponent,
