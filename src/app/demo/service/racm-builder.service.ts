@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RacmInterface } from 'src/app/racm-interface';
+import { RacmInterface } from '../view/racm-builder/racm-interface';
+
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { RacmInterface } from 'src/app/racm-interface';
+
 import { RacmBuilderService } from '../../service/racm-builder.service';
+import { RacmInterface } from './racm-interface';
 
 interface Risk{
   name:string;

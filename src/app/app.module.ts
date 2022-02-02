@@ -141,6 +141,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { DashboardComponent } from './demo/view/dashboard/dashboard.component';
 import { RacmBuilderComponent } from './demo/view/racm-builder/racm-builder.component';
 import { DataRequestComponent } from './demo/view/data-request/data-request.component';
+import {EditorModule} from 'primeng/editor';
+
 
 FullCalendarModule.registerPlugins([
     dayGridPlugin,
@@ -150,6 +152,7 @@ FullCalendarModule.registerPlugins([
 
 @NgModule({
     imports: [
+        EditorModule,
         BrowserModule,
         FormsModule,
         AppRoutingModule,
