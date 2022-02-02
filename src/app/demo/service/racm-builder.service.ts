@@ -7,6 +7,7 @@ import { RacmInterface } from '../view/racm-builder/racm-interface';
   providedIn: 'root'
 })
 export class RacmBuilderService {
+  
 
   constructor(private http:HttpClient) { }
   get(){

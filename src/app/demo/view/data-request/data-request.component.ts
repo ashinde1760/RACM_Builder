@@ -34,7 +34,7 @@ export class DataRequestComponent implements OnInit {
 
   
 
-  dataRequests!: Datareq[];
+  dataRequests: any[]=[];
 
   dataRequest!: Datareq;
 
@@ -43,8 +43,10 @@ export class DataRequestComponent implements OnInit {
   submitted: boolean;
   dataReqDialog: boolean;
 
-  cols!: any[];
+  cols: any[];
   text1: string;
+
+  _selectedColumns:any[];
   
 
  
@@ -56,8 +58,8 @@ export class DataRequestComponent implements OnInit {
     // this.productService.getProducts().then(data => this.dataRequests = data);
     this.dataReqService.getDataReq().subscribe(
         (data: any) => {
-            this.dataRequests = data["content"];
-            console.log("from init",data);
+            this.dataRequests = data;
+            console.log("from init",this.dataRequests);
             
         },
         (error) => {
@@ -105,7 +107,14 @@ publish() {
 
 
 
+ editRowData(data:any)
+ {
+    alert("please write method to edit record")
+ }
 
-
+ deleteRowData(data:any)
+ {
+    alert("please write method to delete record")
+ }
 
 }
