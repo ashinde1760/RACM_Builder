@@ -55,6 +55,8 @@ export class RacmBuilderComponent {
   ngOnInit(): void {
     this.racmService.get().subscribe((data) => {
       this.racmInterfaces=data;
+      console.log(this.racmInterface);
+      
     });
 
     this.cols=[

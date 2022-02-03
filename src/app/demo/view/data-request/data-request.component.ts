@@ -36,7 +36,7 @@ export class DataRequestComponent implements OnInit {
 
   
 
-  dataRequests!: Datareq[];
+  dataRequests: any[]=[];
 
   dataRequest!: Datareq;
 
@@ -45,9 +45,11 @@ export class DataRequestComponent implements OnInit {
   submitted: boolean;
   dataReqDialog: boolean;
 
-  cols!: any[];
+  cols: any[];
   text1: string;
-  selectedtargetDate:string;
+
+  _selectedColumns:any[];
+    selectedtargetDate: string;
   
 
  
@@ -60,7 +62,7 @@ export class DataRequestComponent implements OnInit {
     this.dataReqService.getDataReq().subscribe(
         (data: any) => {
             this.dataRequests = data;
-            console.log("from init",data);
+            console.log("from init",this.dataRequests);
             
         },
         (error) => {
@@ -178,7 +180,6 @@ publish() {
   }
 
 
-
-
+ 
 
 }
