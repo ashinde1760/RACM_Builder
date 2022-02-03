@@ -95,7 +95,7 @@
 
       <!-- ++++++++++ -->
 
-    <!-- <p-table #dt [value]="dataRequests" [columns]="cols" [rows]="10" [paginator]="true" [globalFilterFields]="['request','auditName','assignedTo','targetDate','text1','attachment']"
+    <p-table #dt [value]="dataRequests" [columns]="cols" [rows]="10" [paginator]="true" [globalFilterFields]="['request','auditName','assignedTo','targetDate','text1','attachment']"
 					 [(selection)]="selecteddataRequests" [rowHover]="true" dataKey="id"
 					 styleClass="p-datatable-customers"
 					 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
@@ -120,6 +120,8 @@
                         <th pSortableColumn="targetDate">Target Date <p-sortIcon field="targetDate"></p-sortIcon></th>
                         <th pSortableColumn="text1">Message <p-sortIcon field="text1"></p-sortIcon></th>
                         <th pSortableColumn="attachment">Attachment <p-sortIcon field="attachment"></p-sortIcon></th>
+                        <th>Action</th>
+            
                         <th></th>
 					</tr>
 				</ng-template>
@@ -139,7 +141,7 @@
 							{{product.assignedTo}}
 						</td>
                         <td><span class="p-column-title">Target Date</span>
-							{{product.targetDate}}
+							{{product.targetDate | date}}
 						</td>
                         <td><span class="p-column-title">Message</span>
 							{{product.text1}}
@@ -150,9 +152,11 @@
 						
 						
 						<td>
-							<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(product)"></button>
-							<button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+							<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editRowData(product)"></button> 
 						</td>
+                        <td>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteRowData(product)"></button>
+				        </td>
 					</tr>
 				</ng-template>
 				<ng-template pTemplate="summary">
@@ -160,7 +164,7 @@
 						In total there are {{dataRequests ? dataRequests.length : 0 }} dataRequests.
 					</div>
 				</ng-template>
-			</p-table> -->
+			</p-table>
 
             <!-- ++++++++++ -->
           
@@ -227,10 +231,12 @@
 [scrollable]="true" responsiveLayout="scroll" scrollHeight="350px">
     <ng-template pTemplate="header" let-columns>
         <tr>
-            <th *ngFor="let col of columns">
+            <th style="width: 3rem;" *ngFor="let col of columns">
                 {{col.header}}
             </th>
+           
             <th>Action</th>
+            <th></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -268,15 +274,16 @@
         </div>
         <div class="p-formgrid p-grid">
             <div class="p-field p-col">
-                <label for="price">Assigned To</label>
+                <label for="assignedTo">Assigned To</label>
                 <input type="text" pInputText id="name" [(ngModel)]="dataRequest.assignedTo" required autofocus />
                 <small class="p-invalid" *ngIf="submitted && !dataRequest.assignedTo">Name is required.</small>
                
             </div>
             <div class="p-field p-col">
-                <label for="quantity">Target Date</label>
+                <label for="targetDate">Target Date</label>
                 <p-calendar [(ngModel)]="dataRequest.targetDate" [ngModelOptions]="{standalone: true}"></p-calendar>
             </div>
+            
         </div>
         
         

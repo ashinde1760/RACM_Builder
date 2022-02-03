@@ -5,6 +5,8 @@ import { DatareqServiceService } from '../../service/datareq-service.service';
 
 import { Datareq } from './datareq';
 
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-data-request',
@@ -45,10 +47,11 @@ export class DataRequestComponent implements OnInit {
 
   cols!: any[];
   text1: string;
+  selectedtargetDate:string;
   
 
  
-  constructor(private dataReqService: DatareqServiceService, private messageService: MessageService) {}
+  constructor(private dataReqService: DatareqServiceService,private confirmatonService:ConfirmationService, private messageService: MessageService) {}
 
   
   ngOnInit(): void {
@@ -56,7 +59,7 @@ export class DataRequestComponent implements OnInit {
     // this.productService.getProducts().then(data => this.dataRequests = data);
     this.dataReqService.getDataReq().subscribe(
         (data: any) => {
-            this.dataRequests = data["content"];
+            this.dataRequests = data;
             console.log("from init",data);
             
         },
@@ -66,16 +69,13 @@ export class DataRequestComponent implements OnInit {
     );
     
 
-    this.cols = [
-      { field: 'id', header: 'id' },
+    this.cols = [{ field: 'id', header: 'id' },
       { field: 'request', header: 'Request' },
       { field: 'auditName', header: 'AuditName' },
       { field: 'assignedTo', header: 'Assigned To' },
       { field: 'targetDate', header: 'Target Date' },
       { field: 'text1', header: 'message' },
-      { field: 'attachment', header: 'Attachment' }
-   
-  ];
+      { field: 'attachment', header: 'Attachment' }];
   }
   openNew() {
     this.dataRequest = {};
@@ -91,18 +91,91 @@ export class DataRequestComponent implements OnInit {
 publish() {
     this.submitted = true;
     console.log("data",this.dataRequest);
-   
-    this.dataReqService.publishDataReq(this.dataRequest).subscribe((data)=>{
-        this.ngOnInit();
-        this.messageService.add({
-            severity: "success",
-            summary: "Success",
-            detail: "Data Request Created Successfully",
-        });
-      
-    })
+
+    if (this.dataRequest.request?.trim()) {
+        if (this.dataRequest.id) {
+            //swal fire code starts here
+            this.hideDialog();
+            Swal.fire({
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Save",
+                denyButtonText: `Don't save`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+
+                    Swal.fire("Saved!", "", "success");
+                    //Logic for Update
+                    this.dataReqService
+                        .updateDataReq(this.dataRequest.id, this.dataRequest)
+                        .subscribe(
+                            (data: any) => {
+                                this.ngOnInit();
+                            },
+                            (error) => {
+                                alert(
+                                    "Something went wrong while updating Data Request...!!"
+                                );
+                            }
+                        );
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        }
+        else {
+           
+
+            this.dataReqService.publishDataReq(this.dataRequest).subscribe(
+                (data: any) => {
+                    this.ngOnInit();
+                    this.messageService.add({
+                        severity: "success",
+                        summary: "Success",
+                        detail: "Data Request Created Successfully",
+                    });
+                },
+                (error) => {
+                    alert(
+                        "something went wrong while creating new Data Request...!!"
+                    );
+                }
+            );
+            this.dataReqDialog = false;
+        }
+    }
  }
 
+ editRowData(dataRequest:Datareq){
+    //this will open dialog box with the existing data prefilled and call saveData()
+    this.dataRequest={ ...dataRequest};
+    this.selectedtargetDate = dataRequest.targetDate;
+    this.dataReqDialog=true;
+  }
+
+  deleteRowData(rowData:any){
+    this.confirmatonService.confirm({
+      message: 'Are You sure you want to delete "' + rowData.id + '"?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        //calling delete mothod of service and passing id to delete that entry
+        this.dataReqService.deleteDataReq(rowData.id).subscribe(() => {
+          });
+          //this code removes the deleted row from the table on the screen only and not from db
+        this.dataRequests = this.dataRequests.filter(
+          (val) => val.id !== rowData.id
+        );
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Data Deleted',
+        });
+      },
+    });
+  }
 
 
 
