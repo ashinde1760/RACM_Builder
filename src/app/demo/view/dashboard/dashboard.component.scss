@@ -1,0 +1,20 @@
+.rowData{
+    cursor: pointer;
+}
+.layout-topbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 998;
+    height: 60px;
+    background: #3f4381;
+    /* Old browsers */
+    background: -moz-linear-gradient(-206deg, #474b81 5%, #3f4381 100%);
+    background: -webkit-linear-gradient(-206deg, #484c81 5%, #3f4381 100%);
+    background: linear-gradient(-206deg, #555a92 5%, #3f4381 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#3f4381", endColorstr="#3f4381",GradientType=1 );
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
