@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -86,6 +86,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {TreeModule} from 'primeng/tree';
 import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Application Components
 import {AppCodeModule} from './app.code.component';
@@ -142,6 +143,7 @@ import { DashboardComponent } from './demo/view/dashboard/dashboard.component';
 import { RacmBuilderComponent } from './demo/view/racm-builder/racm-builder.component';
 import { DataRequestComponent } from './demo/view/data-request/data-request.component';
 import {EditorModule} from 'primeng/editor';
+import { LoginComponent } from './login/login.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -213,6 +215,7 @@ FullCalendarModule.registerPlugins([
         ProgressBarModule,
         RadioButtonModule,
         RatingModule,
+        ReactiveFormsModule,
         RippleModule,
         ScrollPanelModule,
         ScrollTopModule,
@@ -240,7 +243,7 @@ FullCalendarModule.registerPlugins([
         VirtualScrollerModule,
         AppCodeModule,
         DialogModule,
-    
+        FlexLayoutModule
     ],
     declarations: [
         AppComponent,
@@ -274,7 +277,11 @@ FullCalendarModule.registerPlugins([
         AppAccessdeniedComponent,
         DashboardComponent,
         RacmBuilderComponent,
-        DataRequestComponent
+        DataRequestComponent,
+        LoginComponent,
+    ],
+    exports:[
+        AppTopBarComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

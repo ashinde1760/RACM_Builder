@@ -1,1 +1,68 @@
-<p>dashboard works!</p>
+<!-- <p>dashboard works!</p>
+<button pButton (click)=next()>Next</button> -->
+
+<div class="layout-topbar">
+    <!-- <a class="logo" href="/">
+        <img src="assets/layout/images/pwc-logo.jpg" style="width: 150px; margin-top: 3px; margin-left: 5px;" alt="PWC-logo"/>
+    </a> -->
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="color: white;">
+        <img src="assets/layout/images/pwc-logo.jpg" style="width: 150px; margin-top: 3px; margin-left: 5px;" alt="PWC-logo"/>
+        <b><h1 style="text-decoration: solid;">Audit Execution & Reporting</h1></b>
+        <b style="cursor: pointer;"><h1><strong><i class="pi pi-user"> Profile  &nbsp;</i></strong></h1></b>
+    </div>
+</div>
+
+<!-- <nav >
+    <button pButton>Profile</button>
+</nav> -->
+<div>
+<p-table #dt [value]="projectData" [rows]="5" [paginator]="true" [globalFilterFields]="['auditType','clientName','financialYear','status','startDate','endDate']" responsiveLayout="scroll"
+ [rowHover]="true" dataKey="id"
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+<ng-template pTemplate="caption">
+    <div class="flex align-items-center justify-content-between">
+        <h5 class="m-0">Manage Projects</h5>
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+        </span>
+    </div>
+</ng-template>
+<ng-template pTemplate="header">
+    <tr>
+       
+        <th pSortableColumn="auditType">Audit type <p-sortIcon field="auditType"></p-sortIcon></th>
+        <th pSortableColumn="clientName">Client Name <p-sortIcon field="clientName"></p-sortIcon></th>
+        <th pSortableColumn="financialYear">Financial Year <p-sortIcon field="financialYear"></p-sortIcon></th>
+        <th pSortableColumn="process">Process <p-sortIcon field="process"></p-sortIcon></th>
+        <th pSortableColumn="subProcess">Sub Process <p-sortIcon field="subProcess"></p-sortIcon></th>
+        <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+        <th pSortableColumn="startDate">Start Date <p-sortIcon field="startDate"></p-sortIcon></th>
+        <th pSortableColumn="endDate">End Date <p-sortIcon field="endDate"></p-sortIcon></th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-projectData >
+    <tr (click)="onClick(projectData)" class="rowData">
+       
+        <td>{{projectData.auditType}}</td>
+        <td>{{projectData.clientName}}</td>
+        <td>{{projectData.financialYear}}</td>
+        <td>{{projectData.process}}</td>
+        <td>{{projectData.subProcess}}</td>
+        <td>{{projectData.status}}</td>
+        <td>{{projectData.startDate}}</td>
+        <td>{{projectData.endDate}}</td>
+        <!-- <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+        </td> -->
+    </tr>
+</ng-template>
+<ng-template pTemplate="summary">
+    <div class="flex align-items-center justify-content-between">
+        In total there are {{projectData ? projectData.length : 0 }} products.
+    </div>
+</ng-template>
+</p-table>
+</div>

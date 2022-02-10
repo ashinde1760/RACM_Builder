@@ -1,11 +1,18 @@
 <div class="layout-topbar">
-    <a class="logo" href="/">
+    <!-- <a class="logo" href="/">
         <img src="assets/layout/images/pwc-logo.jpg" style="width: 150px; margin-top: 3px; margin-left: 5px;" alt="PWC-logo"/>
     </a>
     <a id="menu-button" href="#" (click)="appMain.onMenuButtonClick($event)">
         <i class="pi pi-align-left"></i>
-    </a>
-
+    </a> -->
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="color: white;">
+        <img src="assets/layout/images/pwc-logo.jpg" style="width: 150px; margin-top: 3px; margin-left: 5px;" alt="PWC-logo"/>
+        <a id="menu-button" href="#" (click)="appMain.onMenuButtonClick($event)">
+            <i class="pi pi-align-left"></i>
+        </a>
+        <b><h1>Audit Execution & Reporting</h1></b>
+        <b style="cursor: pointer;"><h1><strong><i class="pi pi-user"> Profile  &nbsp;</i></strong></h1></b>
+    </div>
    
     <!-- <a id="topbar-menu-button" href="#" (click)="appMain.onTopbarMenuButtonClick($event)" *ngIf="app.profileMode==='top' || appMain.isHorizontal()">
         <img src="assets/layout/images/avatar.png" alt="california-layout">

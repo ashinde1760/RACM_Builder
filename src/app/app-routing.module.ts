@@ -23,15 +23,22 @@ import {AppHelpComponent} from './pages/app.help.component';
 import { DashboardComponent } from './demo/view/dashboard/dashboard.component';
 import { RacmBuilderComponent } from './demo/view/racm-builder/racm-builder.component';
 import { DataRequestComponent } from './demo/view/data-request/data-request.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
             {
-                path: '', component: AppMainComponent,
+                path:'',
+                component:LoginComponent
+            },
+            {
+                path:'home', component:DashboardComponent
+            },
+            {
+                path: 'main', component: AppMainComponent,
                 children: [
-                    {path: '',component:DashboardComponent},
-                    {path:'uikit/racmBuilder',component:RacmBuilderComponent},
+                    {path:'',component:RacmBuilderComponent},
                     {path:'uikit/dataRequest',component:DataRequestComponent},
                     {path: 'utilities/display', component: DisplayComponent},
                     {path: 'utilities/elevation', component: ElevationComponent},
