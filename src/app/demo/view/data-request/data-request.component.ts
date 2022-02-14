@@ -46,7 +46,11 @@ export class DataRequestComponent implements OnInit {
   dataReqDialog: boolean;
 
   cols: any[];
-  text1: string;
+  newText: string;
+  TextRequests: any[]=[];
+
+
+  TDate: string;
 
   _selectedColumns:any[];
     selectedtargetDate: string;
@@ -63,6 +67,18 @@ export class DataRequestComponent implements OnInit {
         (data: any) => {
             this.dataRequests = data;
             console.log("from init",this.dataRequests);
+            this.TextRequests = data;
+
+            this.TextRequests.forEach(element => {
+                console.log("143",element['text1']);
+           
+                this.newText = element['text1'];
+                console.log("nnn",this.newText);
+                
+            });
+
+           
+            
             
         },
         (error) => {
@@ -110,11 +126,25 @@ publish() {
 
                     Swal.fire("Saved!", "", "success");
                     //Logic for Update
+
+                    if(this.TDate===undefined)
+                        {
+                            this.dataRequest.targetDate =this.TDate
+                        }
+                        else
+                        {
+                            this.dataRequest.targetDate =this.TDate
+                        }
+
+                    // this.dataRequest.targetDate = this.TDate;
+
                     this.dataReqService
                         .updateDataReq(this.dataRequest.id, this.dataRequest)
                         .subscribe(
                             (data: any) => {
+                                
                                 this.ngOnInit();
+                                console.log("edit method data",data);
                             },
                             (error) => {
                                 alert(
@@ -129,10 +159,14 @@ publish() {
         }
         else {
            
+            this.dataRequest.targetDate = this.TDate;
 
             this.dataReqService.publishDataReq(this.dataRequest).subscribe(
                 (data: any) => {
+                    
+                    
                     this.ngOnInit();
+                    console.log("save method data",data);
                     this.messageService.add({
                         severity: "success",
                         summary: "Success",
