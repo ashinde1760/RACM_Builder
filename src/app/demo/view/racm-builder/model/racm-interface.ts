@@ -1,5 +1,7 @@
-export interface RacmInterface {
+export interface Racm {
     id?:string;
+    buisnessProcess?:string;
+    subProcess?:string;
     objective?:string;
     risk?:string;
     control?:string;
