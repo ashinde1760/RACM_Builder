@@ -144,13 +144,10 @@
 							{{product.targetDate | date}}
 						</td>
                         <td><span class="p-column-title">Message</span>
-							{{product.text1}}
-                            <code>
-                                {{product.text1}}
-                            </code>
-                            
+                            <span [innerHTML]="product.text1"></span>
 						</td>
                         <td><span class="p-column-title">Attachment</span>
+                            
 							{{product.attachment}}
 						</td>
 						
