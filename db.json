@@ -14,104 +14,94 @@
     {
       "request": "Data Needed for salary Audit",
       "auditName": "salary Audit",
-      "assignedTo": "shivraj",
-      "targetDate": "2022-02-08T18:30:00.000Z",
-      "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently...please provide me urgently</p>",
+      "assignedTo": "shivaji",
+      "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently...<strong><em>please provide me urgently</em></strong></p>",
       "attachment": "tasdiq@gmail.com",
-      "id": 1
-    },
-    {
-      "targetDate": "2022-01-31T18:30:00.000Z",
-      "request": "Files needed",
-      "auditName": "Financial Audit",
-      "assignedTo": "Anudit",
-      "text1": "<p>Hello...i need the files for financial audit...<strong>please send me asap</strong>....</p>",
-      "attachment": "Kps@pwc.in",
-      "id": 2
+      "id": 1,
+      "targetDate": "2022-02-17T18:30:00.000Z"
     }
   ],
-  "projects":[
+  "projects": [
     {
-      "auditType":"Internal Audit",
-      "clientName":"Amezon",
-      "financialYear":"2020",
-      "status":"In Progress",
-      "startDate":"17/01/2020",
-      "endDate":"",
-      "process":"Human Resource",
-      "subProcess":"Hiring Budget" 
+      "auditType": "Internal Audit",
+      "clientName": "Amezon",
+      "financialYear": "2020",
+      "status": "In Progress",
+      "startDate": "17/01/2020",
+      "endDate": "",
+      "process": "Human Resource",
+      "subProcess": "Hiring Budget"
     },
     {
-      "auditType":"Internal Audit",
-      "clientName":"Google",
-      "financialYear":"2018",
-      "status":"In Progress",
-      "startDate":"10/10/2019",
-      "endDate":"",
-      "process":"Human Resource",
-      "subProcess":"Manpower plan" 
+      "auditType": "Internal Audit",
+      "clientName": "Google",
+      "financialYear": "2018",
+      "status": "In Progress",
+      "startDate": "10/10/2019",
+      "endDate": "",
+      "process": "Human Resource",
+      "subProcess": "Manpower plan"
     },
     {
-      "auditType":"Internal Audit",
-      "clientName":"Anemoi Technology",
-      "financialYear":"2015",
-      "status":"Completed",
-      "startDate":"13/04/2020",
-      "endDate":"10/05/2020",
-      "process":"Human Resource",
-      "subProcess":"Onboarding" 
+      "auditType": "Internal Audit",
+      "clientName": "Anemoi Technology",
+      "financialYear": "2015",
+      "status": "Completed",
+      "startDate": "13/04/2020",
+      "endDate": "10/05/2020",
+      "process": "Human Resource",
+      "subProcess": "Onboarding"
     },
     {
-      "auditType":"Internal Audit",
-      "clientName":"Cyperts Technology",
-      "financialYear":"2021",
-      "status":"In Progress",
-      "startDate":"04/04/2020",
-      "endDate":"",
-      "process":"Human Resource",
-      "subProcess":"Exit" 
+      "auditType": "Internal Audit",
+      "clientName": "Cyperts Technology",
+      "financialYear": "2021",
+      "status": "In Progress",
+      "startDate": "04/04/2020",
+      "endDate": "",
+      "process": "Human Resource",
+      "subProcess": "Exit"
     },
     {
-      "auditType":"Internal Audit",
-      "clientName":"Accenture",
-      "financialYear":"2017",
-      "status":"Completed",
-      "startDate":"01/10/2020",
-      "endDate":"03/12/2020",
-      "process":"Order to Cash",
-      "subProcess":"sub process 1" 
+      "auditType": "Internal Audit",
+      "clientName": "Accenture",
+      "financialYear": "2017",
+      "status": "Completed",
+      "startDate": "01/10/2020",
+      "endDate": "03/12/2020",
+      "process": "Order to Cash",
+      "subProcess": "sub process 1"
     },
     {
-      "auditType":"Internal Audit",
-      "clientName":"IBM",
-      "financialYear":"2012",
-      "status":"In Progress",
-      "startDate":"20/07/2015",
-      "endDate":"",
-      "process":"Procure to Pay",
-      "subProcess":"Sub Process 2" 
+      "auditType": "Internal Audit",
+      "clientName": "IBM",
+      "financialYear": "2012",
+      "status": "In Progress",
+      "startDate": "20/07/2015",
+      "endDate": "",
+      "process": "Procure to Pay",
+      "subProcess": "Sub Process 2"
     },
     {
-      "auditType":"Internal Audit",
-      "clientName":"Metamagic pvt. Ltd",
-      "financialYear":"2018",
-      "status":"Completed",
-      "startDate":"17/07/2021",
-      "endDate":"10/09/2021",
-      "process":"Record to Report",
-      "subProcess":"sub process 3" 
+      "auditType": "Internal Audit",
+      "clientName": "Metamagic pvt. Ltd",
+      "financialYear": "2018",
+      "status": "Completed",
+      "startDate": "17/07/2021",
+      "endDate": "10/09/2021",
+      "process": "Record to Report",
+      "subProcess": "sub process 3"
     },
     {
-      "auditType":"Internal Audit",
-      "clientName":"Wipro",
-      "financialYear":"2010",
-      "status":"Completed",
-      "startDate":"01/12/2021",
-      "endDate":"10/01/2022",
-      "process":"Human Resource",
-      "subProcess":"Appraisal" 
+      "auditType": "Internal Audit",
+      "clientName": "Wipro",
+      "financialYear": "2010",
+      "status": "Completed",
+      "startDate": "01/12/2021",
+      "endDate": "10/01/2022",
+      "process": "Human Resource",
+      "subProcess": "Appraisal"
     }
-
   ],
   "posts": [
     {
