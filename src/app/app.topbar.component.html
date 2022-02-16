@@ -5,15 +5,15 @@
     <a id="menu-button" href="#" (click)="appMain.onMenuButtonClick($event)">
         <i class="pi pi-align-left"></i>
     </a> -->
-    <div fxLayout="row" fxLayoutAlign="space-between center" style="color: white;">
-        <img src="assets/layout/images/pwc-logo.jpg" style="width: 150px; margin-top: 3px; margin-left: 5px;" alt="PWC-logo"/>
-        <a id="menu-button" href="#" (click)="appMain.onMenuButtonClick($event)">
+        <img src="assets/layout/images/pwc-logo.jpg" style="width: 150px; margin-top: 3px; margin-left: 5px; float:left" alt="PWC-logo"/>
+        <a style="float:left" id="menu-button" href="#" (click)="appMain.onMenuButtonClick($event)">
             <i class="pi pi-align-left"></i>
         </a>
-        <b><h1>Audit Execution & Reporting</h1></b>
-        <b style="cursor: pointer;"><h1><strong><i class="pi pi-user"> Profile  &nbsp;</i></strong></h1></b>
-    </div>
-   
+
+        <!-- <b><h1>Audit Execution & Reporting</h1></b> -->
+         <b style="cursor: pointer; float:right; color: red;"><h1 style="font-weight: bolder;"><i class="pi pi-user"> Logout   &nbsp;</i></h1></b>
+        <b style="cursor: pointer; float:right; color: white;"><h1><i class="pi pi-user"> Profile &nbsp;</i></h1></b>
+        
     <!-- <a id="topbar-menu-button" href="#" (click)="appMain.onTopbarMenuButtonClick($event)" *ngIf="app.profileMode==='top' || appMain.isHorizontal()">
         <img src="assets/layout/images/avatar.png" alt="california-layout">
         <span>Pauline Harrell</span>

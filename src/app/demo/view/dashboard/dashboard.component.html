@@ -27,7 +27,9 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
             <i class="pi pi-search"></i>
             <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
         </span>
+
     </div>
+
 </ng-template>
 <ng-template pTemplate="header">
     <tr>
