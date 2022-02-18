@@ -40,7 +40,7 @@ export class RacmBuilderComponent {
     submitted!: boolean;
 
     riskOptions!: Risk[];
-    selectedRisk!: string;;
+    selectedRisk!: string;
 
     controlOptions!: Control[];
     selectedControl!: string;
@@ -55,7 +55,7 @@ export class RacmBuilderComponent {
     selectedBuisnessProcess: string;
 
     subProcesses: SubProcess[];
-    selectedSubProcess: string;;
+    selectedSubProcess: string;
 
     constructor(
         private racmService: RacmBuilderService,
@@ -108,8 +108,8 @@ export class RacmBuilderComponent {
 
         this.cols = [
             { field: "id", header: "Unique Ref#" },
-            {field:'buisnessProcess',header:'Buisness Process'},
-            {field:'subProcess',header:'Sub Process'},
+            { field: "buisnessProcess", header: "Buisness Process" },
+            { field: "subProcess", header: "Sub Process" },
             { field: "objective", header: "Objective" },
             { field: "risk", header: "Risk" },
             { field: "control", header: "Control" },
@@ -125,134 +125,130 @@ export class RacmBuilderComponent {
         this.dialogBox = true;
     }
     saveData() {
-      this.submitted = true;
-      if (this.racmInterface.objective.trim()) {
-          if (this.racmInterface.id) {
-            this.racmInterfaces[this.findIndexById(this.racmInterface.id)] = this.racmInterface;
+        this.submitted = true;
+        if (this.racmInterface.objective.trim()) {
+            if (this.racmInterface.id) {
+                this.racmInterfaces[this.findIndexById(this.racmInterface.id)] =
+                    this.racmInterface;
 
-              //swal fire code starts here
-              this.hideDialog();
-              Swal.fire({
-                  title: "Do you want to save the changes?",
-                  showDenyButton: true,
-                  showCancelButton: true,
-                  confirmButtonText: "Save",
-                  denyButtonText: `Don't save`,
-              }).then((result) => {
-                  /* Read more about isConfirmed, isDenied below */
-                  if (result.isConfirmed) {
-                      // this.racmInterface.buisnessProcess = this.selectedBuisnessProcess["process"];
-                     
-                      // if(this.selectedBuisnessProcess["process"]===undefined)
-                      // {
-                      //     this.racmInterface.buisnessProcess =this.selectedBuisnessProcess
-                      // }
-                      // else
-                      // {
-                      //     this.racmInterface.buisnessProcess =this.selectedBuisnessProcess['process']
-                      // }
+                //swal fire code starts here
+                this.hideDialog();
+                Swal.fire({
+                    title: "Do you want to save the changes?",
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: "Save",
+                    denyButtonText: `Don't save`,
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        // this.racmInterface.buisnessProcess = this.selectedBuisnessProcess["process"];
 
-                      if(this.selectedSubProcess["subProcess"]===undefined)
-                      {
-                          this.racmInterface.subProcess =this.selectedSubProcess
-                      }
-                      else
-                      {
-                          this.racmInterface.subProcess =this.selectedSubProcess['subProcess']
-                      }
+                        // if(this.selectedBuisnessProcess["process"]===undefined)
+                        // {
+                        //     this.racmInterface.buisnessProcess =this.selectedBuisnessProcess
+                        // }
+                        // else
+                        // {
+                        //     this.racmInterface.buisnessProcess =this.selectedBuisnessProcess['process']
+                        // }
 
-                      if(this.selectedRisk["risk"]===undefined)
-                      {
-                          this.racmInterface.risk =this.selectedRisk
-                      }
-                      else
-                      {
-                          this.racmInterface.risk =this.selectedRisk['risk']
-                      }
+                        if (
+                            this.selectedSubProcess["subProcess"] === undefined
+                        ) {
+                            this.racmInterface.subProcess =
+                                this.selectedSubProcess;
+                        } else {
+                            this.racmInterface.subProcess =
+                                this.selectedSubProcess["subProcess"];
+                        }
 
-                      if(this.selectedControl["control"]===undefined)
-                      {
-                          this.racmInterface.control =this.selectedControl
-                      }
-                      else
-                      {
-                          this.racmInterface.control =this.selectedControl['control']
-                      }
+                        if (this.selectedRisk["risk"] === undefined) {
+                            this.racmInterface.risk = this.selectedRisk;
+                        } else {
+                            this.racmInterface.risk = this.selectedRisk["risk"];
+                        }
 
-                      if(this.selectedControlTypes["controlType"]===undefined)
-                      {
-                          this.racmInterface.controlType =this.selectedControlTypes
-                      }
-                      else
-                      {
-                          this.racmInterface.controlType =this.selectedControlTypes['controlType']
-                      }
+                        if (this.selectedControl["control"] === undefined) {
+                            this.racmInterface.control = this.selectedControl;
+                        } else {
+                            this.racmInterface.control =
+                                this.selectedControl["control"];
+                        }
 
-                      if(this.selectedControlTypes["status"]===undefined)
-                      {
-                          this.racmInterface.status =this.selectedStatus
-                      }
-                      else
-                      {
-                          this.racmInterface.status =this.selectedStatus['status']
-                      }
+                        if (
+                            this.selectedControlTypes["controlType"] ===
+                            undefined
+                        ) {
+                            this.racmInterface.controlType =
+                                this.selectedControlTypes;
+                        } else {
+                            this.racmInterface.controlType =
+                                this.selectedControlTypes["controlType"];
+                        }
 
+                        if (this.selectedControlTypes["status"] === undefined) {
+                            this.racmInterface.status = this.selectedStatus;
+                        } else {
+                            this.racmInterface.status =
+                                this.selectedStatus["status"];
+                        }
 
-  
-                      Swal.fire("Saved!", "", "success");
-                      //Logic for Update
-                      this.racmService.put(this.racmInterface.id, this.racmInterface)
-                          .subscribe(
-                              (data: any) => {
-                                  this.ngOnInit();
-                              },
-                              (error) => {
-                                  alert(
-                                      "Something went wrong while updating existing Racm Builder data...!!"
-                                  );
-                              }
-                          );
-                  } else if (result.isDenied) {
-                      Swal.fire("Changes are not saved", "", "info");
-                  }
-              });
-          } else {
-            this.racmInterface.id=this.createId();
-              //code for Saving New Client
-              this.racmInterface.buisnessProcess = this.selectedBuisnessProcess['process'];
-              this.racmInterface.subProcess = this.selectedSubProcess['subProcess'];
-              this.racmInterface.risk = this.selectedRisk['risk'];
-              this.racmInterface.control = this.selectedControl['control'];
-              this.racmInterface.controlType = this.selectedControlTypes['controlType'];
-              this.racmInterface.status = this.selectedStatus['status'];
+                        Swal.fire("Saved!", "", "success");
+                        //Logic for Update
+                        this.racmService
+                            .put(this.racmInterface.id, this.racmInterface)
+                            .subscribe(
+                                (data: any) => {
+                                    this.ngOnInit();
+                                },
+                                (error) => {
+                                    alert(
+                                        "Something went wrong while updating existing Racm Builder data...!!"
+                                    );
+                                }
+                            );
+                    } else if (result.isDenied) {
+                        Swal.fire("Changes are not saved", "", "info");
+                    }
+                });
+            } else {
+                this.racmInterface.id = this.createId();
+                //code for Saving New Client
+                this.racmInterface.buisnessProcess =
+                    this.selectedBuisnessProcess["process"];
+                this.racmInterface.subProcess =
+                    this.selectedSubProcess["subProcess"];
+                this.racmInterface.risk = this.selectedRisk["risk"];
+                this.racmInterface.control = this.selectedControl["control"];
+                this.racmInterface.controlType =
+                    this.selectedControlTypes["controlType"];
+                this.racmInterface.status = this.selectedStatus["status"];
 
-
-              this.racmService.post(this.racmInterface).subscribe(
-                  (data: any) => {
-                      this.ngOnInit();
-                      this.messageService.add({
-                          severity: "success",
-                          summary: "Success",
-                          detail: "Client Created Successfully",
-                      });
-                  },
-                  (error) => {
-                      alert(
-                          "something went wrong while creating new Escalation racmInterface...!!"
-                      );
-                  }
-              );
-              this.dialogBox = false;
-          }
-      }
+                this.racmService.post(this.racmInterface).subscribe(
+                    (data: any) => {
+                        this.ngOnInit();
+                        this.messageService.add({
+                            severity: "success",
+                            summary: "Success",
+                            detail: "Client Created Successfully",
+                        });
+                    },
+                    (error) => {
+                        alert(
+                            "something went wrong while creating new Escalation racmInterface...!!"
+                        );
+                    }
+                );
+                this.dialogBox = false;
+            }
+        }
     }
-
 
     hideDialog() {
         this.dialogBox = false;
         this.submitted = false;
     }
-
 
     deleteRowData(rowData: any) {
         this.confirmatonService.confirm({
@@ -275,21 +271,27 @@ export class RacmBuilderComponent {
         });
     }
 
-
     editRowData(racmInterface1: Racm) {
         //this will open dialog box with the existing data prefilled and call saveData()
         this.racmInterface = { ...racmInterface1 };
 
-        this.selectedBuisnessProcess=racmInterface1.buisnessProcess || racmInterface1.buisnessProcess['process'];
-        this.selectedSubProcess=racmInterface1.subProcess || racmInterface1.subProcess['subProcess'];
-        this.selectedRisk=racmInterface1.risk || racmInterface1.risk['risk'];
-        this.selectedControl=racmInterface1.control || racmInterface1.control['control'];
-        this.selectedControlTypes=racmInterface1.controlType || racmInterface1.controlType['controlType'];
-        this.selectedStatus=racmInterface1.status || racmInterface1.status['status']
+        this.selectedBuisnessProcess =
+            racmInterface1.buisnessProcess ||
+            racmInterface1.buisnessProcess["process"];
+        this.selectedSubProcess =
+            racmInterface1.subProcess ||
+            racmInterface1.subProcess["subProcess"];
+        this.selectedRisk = racmInterface1.risk || racmInterface1.risk["risk"];
+        this.selectedControl =
+            racmInterface1.control || racmInterface1.control["control"];
+        this.selectedControlTypes =
+            racmInterface1.controlType ||
+            racmInterface1.controlType["controlType"];
+        this.selectedStatus =
+            racmInterface1.status || racmInterface1.status["status"];
 
         this.dialogBox = true;
     }
-
 
     findIndexById(id: string): number {
         let index = -1;
@@ -303,7 +305,6 @@ export class RacmBuilderComponent {
 
         return index;
     }
-
 
     createId(): string {
         let id = "";

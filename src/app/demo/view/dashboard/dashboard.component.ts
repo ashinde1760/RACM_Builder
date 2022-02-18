@@ -31,7 +31,18 @@ export class DashboardComponent implements OnInit {
   }
 
   onClick(data:any){
+    console.log(data.Id);
     this.router.navigate(['/main']);
 
+  }
+
+  onSortChange(data:any)
+  {
+
+  }
+
+  projectDetails()
+  {
+    alert("done..")
   }
 }

@@ -17,11 +17,21 @@
       "assignedTo": "shivaji",
       "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently<strong>...<em>please provide me urgently</em></strong></p>",
       "attachment": "tasdiq@gmail.com",
-      "id": 1
+      "id": 1,
+      "targetDate": "2022-02-17T18:30:00.000Z"
+    },
+    {
+      "request": "sample data",
+      "auditName": "Expence",
+      "assignedTo": "Anudit",
+      "text1": "<p>Hii <strong>Anudit,</strong></p><p>I'am Doing an <u>Audit on expense </u>of<strong class=\"ql-font-monospace\"> </strong><strong class=\"ql-font-monospace\" style=\"color: rgb(161, 0, 0);\">your company</strong><span style=\"color: rgb(255, 255, 0);\"> </span>for that I required some data from <em>admin</em>, so can u please share me their contact details?</p><p><br></p><p>thanks and regards</p><p><strong> Akshay Shinde </strong></p>",
+      "targetDate": "2022-02-24T18:30:00.000Z",
+      "id": 2
     }
   ],
   "projects": [
     {
+      "Id":10001,
       "auditType": "Internal Audit",
       "clientName": "Amezon",
       "financialYear": "2020",
@@ -32,6 +42,7 @@
       "subProcess": "Hiring Budget"
     },
     {
+      "Id":10002,
       "auditType": "Internal Audit",
       "clientName": "Google",
       "financialYear": "2018",
@@ -42,6 +53,7 @@
       "subProcess": "Manpower plan"
     },
     {
+      "Id":10003,
       "auditType": "Internal Audit",
       "clientName": "Anemoi Technology",
       "financialYear": "2015",
@@ -52,6 +64,7 @@
       "subProcess": "Onboarding"
     },
     {
+      "Id":10004,
       "auditType": "Internal Audit",
       "clientName": "Cyperts Technology",
       "financialYear": "2021",
@@ -62,6 +75,7 @@
       "subProcess": "Exit"
     },
     {
+      "Id":10005,
       "auditType": "Internal Audit",
       "clientName": "Accenture",
       "financialYear": "2017",
@@ -72,6 +86,7 @@
       "subProcess": "sub process 1"
     },
     {
+      "Id":10006,
       "auditType": "Internal Audit",
       "clientName": "IBM",
       "financialYear": "2012",
@@ -82,6 +97,7 @@
       "subProcess": "Sub Process 2"
     },
     {
+      "Id":10007,
       "auditType": "Internal Audit",
       "clientName": "Metamagic pvt. Ltd",
       "financialYear": "2018",
@@ -92,6 +108,7 @@
       "subProcess": "sub process 3"
     },
     {
+      "Id":10008,
       "auditType": "Internal Audit",
       "clientName": "Wipro",
       "financialYear": "2010",
@@ -101,6 +118,27 @@
       "process": "Human Resource",
       "subProcess": "Appraisal"
     }
+  ],
+  "processData":[
+    {
+      "id":1,
+      "projectId":10001,
+      "process":"",
+      "subProcess":[
+        {
+
+        },
+        {
+
+        },
+        {
+
+        }
+      ],
+      "location":"",
+      "status":""
+    }
+
   ],
   "posts": [
     {
