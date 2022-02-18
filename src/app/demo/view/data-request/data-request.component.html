@@ -101,7 +101,7 @@
 					 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
 				<ng-template pTemplate="caption">
 					<div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
-						<h5 class="p-m-0">Manage Products</h5>
+						<h5 class="p-m-0">Manage Data Request</h5>
 						<span class="p-input-icon-left">
                         <i class="pi pi-search"></i>
                         <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
@@ -117,7 +117,8 @@
               
                         <th pSortableColumn="auditName">Audit Name <p-sortIcon field="auditName"></p-sortIcon></th>
                         <th pSortableColumn="assignedTo">Assigned To <p-sortIcon field="assignedTo"></p-sortIcon></th>
-                        <th pSortableColumn="targetDate">Target Date <p-sortIcon field="targetDate"></p-sortIcon></th>
+                        <th pSortableColumn="startTDate">Start Target Date <p-sortIcon field="startTDate"></p-sortIcon></th>
+                        <th pSortableColumn="endTDate">End Target Date <p-sortIcon field="endTDate"></p-sortIcon></th>
                         <th pSortableColumn="text1">Message <p-sortIcon field="text1"></p-sortIcon></th>
                         <th pSortableColumn="attachment">Attachment <p-sortIcon field="attachment"></p-sortIcon></th>
                         <th>Action</th>
@@ -140,8 +141,11 @@
 						<td><span class="p-column-title">Assigned To</span>
 							{{product.assignedTo}}
 						</td>
-                        <td><span class="p-column-title">Target Date</span>
-							{{product.targetDate | date}}
+                        <td><span class="p-column-title">Start Target Date</span>
+							{{product.startTDate | date}}
+						</td>
+                        <td><span class="p-column-title">End Target Date</span>
+							{{product.endTDate | date}}
 						</td>
                         <td><span class="p-column-title">Message</span>
                             <span [innerHTML]="product.text1"></span>
@@ -273,20 +277,26 @@
                 
             </div>
         </div>
+
         <div class="p-formgrid p-grid">
+            
+            <div class="p-field p-col">
+                <label for="startTDate">Start Target Date</label>
+                <p-calendar [(ngModel)]="STDate" [ngModelOptions]="{standalone: true}"></p-calendar>
+            </div>
+            <div class="p-field p-col">
+                <label for="endTDate">End Target Date</label>
+                <p-calendar [(ngModel)]="ETDate" [ngModelOptions]="{standalone: true}"></p-calendar>
+            </div>            
+        </div>
+        <div class="p-field">
             <div class="p-field p-col">
                 <label for="assignedTo">Assigned To</label>
                 <input type="text" pInputText id="name" [(ngModel)]="dataRequest.assignedTo" required autofocus />
                 <small class="p-invalid" *ngIf="submitted && !dataRequest.assignedTo">Name is required.</small>
                
             </div>
-            <div class="p-field p-col">
-                <label for="targetDate">Target Date</label>
-                <p-calendar [(ngModel)]="TDate" [ngModelOptions]="{standalone: true}"></p-calendar>
-            </div>
-            
         </div>
-        
         
         <div class="p-field">
             <p-editor [(ngModel)]="dataRequest.text1" [style]="{'height':'220px'}"></p-editor>

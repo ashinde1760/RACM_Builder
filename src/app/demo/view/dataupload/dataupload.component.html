@@ -1,1 +1,155 @@
-<p>dataupload works!</p>
+<div>
+    <p-toolbar>
+        <div class="p-toolbar-group-left">
+        
+        </div>
+        <div class="p-toolbar-group-center">
+            <h2>Data Upload</h2>
+        </div>
+
+        <div class="p-toolbar-group-right">
+            <!-- <p-fileUpload
+                mode="basic"
+                label="import"
+                chooseLabel="Import"
+                name=""
+                url=""
+            ></p-fileUpload> -->
+        </div>
+    </p-toolbar>
+</div>
+
+
+
+<p-table styleClass="table" #dt [value]="dataUploads"responsiveLayout="scroll"  [rows]="5" [paginator]="true" [globalFilterFields]="['request','auditName','assignedTo','targetDate','text1','attachment']" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    <h5 class="p-m-0">Manage Data Upload Request</h5>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search..."/>
+                    </span>
+                </div>
+            </ng-template>
+            
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="request">Request</th>
+
+                    <th pSortableColumn="auditName">Audit Name</th>
+
+                    
+
+                    <th pSortableColumn="startTDate">Start Target Date</th>
+                    <th pSortableColumn="endTDate">End Target Date</th>
+
+                    <th pSortableColumn="text1">Message</th>
+                    
+                  
+
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-dataUploads>
+                <tr>
+                    
+                    <td>{{dataUploads.request}}</td>
+                    <td>{{dataUploads.auditName}}</td>
+                   
+                    <td>{{dataUploads.startTDate | date:'d MMM, y'}}</td>
+                    <td>{{dataUploads.endTDate | date:'d MMM, y'}}</td>
+                    <td> <span [innerHTML]="dataUploads.text1"></span></td>
+                   
+                    <!-- <td>
+                        <button pButton pRipple icon="pi pi-upload" (click)="editRowData(dataUploads)" class="p-button-success"></button>
+                    </td> -->
+                    <td>
+                        <button pButton pRipple label="Upload Data" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2" (click)="editRowData(dataUploads)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    In total there are {{dataUploads ? dataUploads.length : 0 }} Data upload requests...
+                </div>
+            </ng-template>
+        </p-table>
+
+  
+<!-- dialogue box code start -->
+
+<p-dialog [(visible)]="dataUploadDialog" [style]="{width: '750px',height: '750px'}" header="Data Upload" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="p-formgrid p-grid">
+            <div class="p-field p-col">
+                <label for="price">Request</label>
+                <input type="text" readonly pInputText id="name" [(ngModel)]="dataUpload.request" required autofocus />
+                <small class="p-invalid" *ngIf="submitted && !dataUpload.request">Name is required.</small>
+                
+            </div>
+            <div class="p-field p-col">
+                <label for="quantity">Audit Name</label>
+                <input type="text" readonly pInputText id="name" [(ngModel)]="dataUpload.auditName" required autofocus />
+                <small class="p-invalid" *ngIf="submitted && !dataUpload.auditName">Name is required.</small>
+                
+            </div>
+        </div>
+
+        <div class="p-formgrid p-grid">
+
+ 
+            
+            <div class="p-field p-col">
+                <label for="startTDate">Start Target Date</label>
+                <input type="datetime" readonly pInputText id="name" [(ngModel)]="dataUpload.startTDate" required autofocus />
+                
+            </div>
+            <div class="p-field p-col">
+                <label for="startTDate">End Target Date</label>
+                <input type="datetime" readonly pInputText id="name" [(ngModel)]="dataUpload.endTDate" required autofocus />
+            </div>            
+        </div>
+        <div class="p-field">
+            <p-fileUpload
+                mode="basic"
+                label="Upload File"
+                chooseLabel="Upload File"
+                name=""
+                url=""
+            ></p-fileUpload>
+        </div>
+
+        <div class="p-field">
+            <div class="p-field p-col">
+                <label for="assignedTo">Description</label>
+                <input type="text" pInputText id="name" [(ngModel)]="dataUpload.Description" required autofocus />
+                <small class="p-invalid" *ngIf="submitted && !dataUpload.assignedTo">Name is required.</small>
+               
+            </div>
+        </div>
+        
+        <div class="p-field">
+            <label for="reason">Reason for non-availability of sample</label>
+            <p-editor [(ngModel)]="dataUpload.reason" [style]="{'height':'220px'}"></p-editor>
+            
+        </div>
+       
+
+        
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Submit" icon="pi pi-check" class="p-button-text" (click)="save()"></button>
+    </ng-template>
+</p-dialog>
+
+<!-- <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> -->
+  
+
+<!-- dialogue box code end -->

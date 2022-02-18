@@ -1,4 +1,4 @@
-export interface Datareq {
+export interface DataUp {
     id?:string;
     request?:string;
     auditName?:string;
@@ -7,5 +7,7 @@ export interface Datareq {
     endTDate?:Date;
     text1?:string;
     attachment?:string;
+    Description?:string
+    reason?:string;
     
 }

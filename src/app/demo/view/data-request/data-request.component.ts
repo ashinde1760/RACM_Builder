@@ -50,10 +50,15 @@ export class DataRequestComponent implements OnInit {
   TextRequests: any[]=[];
 
 
-  TDate: string;
+  
 
   _selectedColumns:any[];
-    selectedtargetDate: string;
+
+    STDate: Date;
+    ETDate: Date;
+    
+    selectedStartTDate: Date;
+    selectedEndTDate: Date;
   
 
  
@@ -127,13 +132,21 @@ publish() {
                     Swal.fire("Saved!", "", "success");
                     //Logic for Update
 
-                    if(this.TDate===undefined)
+                    if(this.STDate===undefined)
                         {
-                            this.dataRequest.targetDate =this.TDate
+                            this.dataRequest.startTDate =this.STDate
                         }
                         else
                         {
-                            this.dataRequest.targetDate =this.TDate
+                            this.dataRequest.startTDate =this.STDate
+                        }
+                        if(this.ETDate===undefined)
+                        {
+                            this.dataRequest.endTDate =this.ETDate
+                        }
+                        else
+                        {
+                            this.dataRequest.endTDate =this.ETDate
                         }
 
                     // this.dataRequest.targetDate = this.TDate;
@@ -159,8 +172,10 @@ publish() {
         }
         else {
            
-            this.dataRequest.targetDate = this.TDate;
+            this.dataRequest.startTDate = this.STDate;
+            this.dataRequest.endTDate = this.ETDate;
 
+           
             this.dataReqService.publishDataReq(this.dataRequest).subscribe(
                 (data: any) => {
                     
@@ -187,7 +202,8 @@ publish() {
  editRowData(dataRequest:Datareq){
     //this will open dialog box with the existing data prefilled and call saveData()
     this.dataRequest={ ...dataRequest};
-    this.selectedtargetDate = dataRequest.targetDate;
+    this.selectedStartTDate = dataRequest.startTDate;
+    this.selectedEndTDate = dataRequest.endTDate;
     this.dataReqDialog=true;
   }
 
