@@ -15,10 +15,9 @@
       "request": "Data Needed for salary Audit",
       "auditName": "salary Audit",
       "assignedTo": "shivaji",
-      "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently...<strong><em>please provide me urgently</em></strong></p>",
+      "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently<strong>...<em>please provide me urgently</em></strong></p>",
       "attachment": "tasdiq@gmail.com",
-      "id": 1,
-      "targetDate": "2022-02-17T18:30:00.000Z"
+      "id": 1
     }
   ],
   "projects": [

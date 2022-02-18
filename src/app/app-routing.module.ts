@@ -24,6 +24,7 @@ import { DashboardComponent } from './demo/view/dashboard/dashboard.component';
 import { RacmBuilderComponent } from './demo/view/racm-builder/racm-builder.component';
 import { DataRequestComponent } from './demo/view/data-request/data-request.component';
 import { LoginComponent } from './login/login.component';
+import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
 
 @NgModule({
     imports: [
@@ -40,6 +41,7 @@ import { LoginComponent } from './login/login.component';
                 children: [
                     {path:'',component:RacmBuilderComponent},
                     {path:'uikit/dataRequest',component:DataRequestComponent},
+                    {path:'uikit/dataUpload',component:DatauploadComponent},
                     {path: 'utilities/display', component: DisplayComponent},
                     {path: 'utilities/elevation', component: ElevationComponent},
                     {path: 'utilities/flexbox', component: FlexboxComponent},

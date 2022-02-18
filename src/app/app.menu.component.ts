@@ -22,8 +22,13 @@ export class AppMenuComponent implements OnInit {
                 label: 'RAS-Audit Platform', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
                 items: [
                     {label: 'RACM', icon: 'pi pi-fw pi-id-card', routerLink: ['/main/']},
-                    {label: 'Data Request', icon: 'pi pi-fw pi-check-square', routerLink: ['/main/uikit/dataRequest']},
-                    
+                    {label: 'Data Request Section', icon: 'pi pi-fw pi-check-square', routerLink: ['/main/uikit/dataRequest'],
+                    items: [
+                        {label: 'Create Data Request', icon: 'pi pi-fw pi-check-square', routerLink: ['/main/uikit/dataRequest']},
+                        {label: 'Data Upload', icon: 'pi pi-fw pi-check-square', routerLink: ['/main/uikit/dataUpload']},
+                        
+                    ]},
+      
                 ]
             },
         ];

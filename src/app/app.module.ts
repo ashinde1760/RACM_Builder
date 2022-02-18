@@ -144,6 +144,7 @@ import { RacmBuilderComponent } from './demo/view/racm-builder/racm-builder.comp
 import { DataRequestComponent } from './demo/view/data-request/data-request.component';
 import {EditorModule} from 'primeng/editor';
 import { LoginComponent } from './login/login.component';
+import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -279,6 +280,7 @@ FullCalendarModule.registerPlugins([
         RacmBuilderComponent,
         DataRequestComponent,
         LoginComponent,
+        DatauploadComponent,
     ],
     exports:[
         AppTopBarComponent
