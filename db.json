@@ -8,6 +8,16 @@
       "controlType": "Option 2",
       "status": "Active",
       "id": "2528"
+    },
+    {
+      "objective": "Cost Cutting on exp",
+      "frequency": "3",
+      "id": "7084",
+  
+      "risk": "Brand",
+      "control": "Control 2",
+      "controlType": "Type 1",
+      "status": "Active"
     }
   ],
   "datareq": [
@@ -20,6 +30,20 @@
       "id": 1,
       "targetDate": "2022-02-17T18:30:00.000Z"
     }
+  ],
+  "processMaster":[
+    {
+    "process": "PM Process 1",
+    "subProcess": "PM Sprocess 1"
+  },
+  {
+    "process": "PM Process 2",
+    "subProcess": "PM Sprocess 2"
+  },
+  {
+    "process": "PM Process 3",
+    "subProcess": "PM Sprocess 3"
+  }
   ],
   "projects": [
     {

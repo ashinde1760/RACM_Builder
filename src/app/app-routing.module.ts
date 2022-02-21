@@ -24,17 +24,22 @@ import { DashboardComponent } from './demo/view/dashboard/dashboard.component';
 import { RacmBuilderComponent } from './demo/view/racm-builder/racm-builder.component';
 import { DataRequestComponent } from './demo/view/data-request/data-request.component';
 import { LoginComponent } from './login/login.component';
+import { WalkthroughComponent } from './demo/view/walkthrough/walkthrough.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
             {
                 path:'',
-                component:LoginComponent
+                component:WalkthroughComponent
             },
             {
                 path:'home', component:DashboardComponent
             },
+            {
+                path: 'walkthrough', component: WalkthroughComponent
+            },
+
             {
                 path: 'main', component: AppMainComponent,
                 children: [
@@ -53,7 +58,7 @@ import { LoginComponent } from './login/login.component';
                     {path: 'pages/calendar', component: AppCalendarComponent},
                     {path: 'pages/timeline', component: AppTimelineDemoComponent},
                     {path: 'pages/invoice', component: AppInvoiceComponent},
-                    {path: 'pages/help', component: AppHelpComponent},
+                    {path: 'pages/help', component: AppHelpComponent}
                 ]
             },
             {path: 'error', component: AppErrorComponent},
