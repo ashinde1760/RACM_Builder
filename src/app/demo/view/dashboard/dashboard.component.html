@@ -123,4 +123,71 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
                 </div>
             </ng-template>
             </p-dataView>
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <p-table [value]="processData" dataKey="name">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem"></th>
+                <th pSortableColumn="id">Process Id <p-sortIcon field="processId"></p-sortIcon></th>
+                <th pSortableColumn="processName">Process Name <p-sortIcon field="processName"></p-sortIcon></th>
+                <th pSortableColumn="location">Location <p-sortIcon field="location"></p-sortIcon></th>
+                <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-processData let-expanded="expanded">
+            <tr>
+                <td>
+                    <button type="button" pButton pRipple [pRowToggler]="processData" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                </td>
+                <td>{{processData.id}}</td>
+                <td>{{processData.process}}</td>
+                <td>{{processData.location}}</td>
+                <td>{{processData.status}}</td>
+                <td><button pButton (click)="processAudit(processData)"> Go For Audit</button></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-processData>
+            <tr>
+                <td colspan="7">
+                    <div class="p-p-3">
+                        <p-table [value]="processData.subProcess" dataKey="id">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th pSortableColumn="subProcess">Sub Process <p-sortIcon field="subProcess"></p-sortIcon></th>
+                                    <th>Status</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-subProcessData>
+                                <tr>
+                                    <td>{{subProcessData.subProcessName}}</td>
+                                    <td>{{processData.status}}</td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="6">There are no sub-processes for this Process yet.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<br><br><br><br>
 </div>
