@@ -22,13 +22,13 @@
   ],
   "datareq": [
     {
-      "request": "Salary Docs",
-      "auditName": "Hr Process Audit",
-      "assignedTo": "Pavitra@anemoitech.com",
-      "text1": "<p>Hi Hr Auditee Team,</p><p><br></p><p>i need <strong>salary details from above mentioned date</strong>. please send it asap.</p><p><br></p><p>Thanks </p><p>Shiv<span style=\"color: rgb(153, 51, 255);\"><span class=\"ql-cursor\">﻿</span></span></p>",
-      "startTDate": "2021-12-31T18:30:00.000Z",
-      "endTDate": "2022-02-16T18:30:00.000Z",
-      "id": 3
+      "request": "Data Needed for salary Audit",
+      "auditName": "salary Audit",
+      "assignedTo": "shivaji",
+      "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently...<strong><em>please provide me urgently</em></strong></p>",
+      "attachment": "tasdiq@gmail.com",
+      "id": 1,
+      "targetDate": "2022-02-17T18:30:00.000Z"
     },
     {
       "text1": "<p>Hii&nbsp;<strong>Anudit,</strong></p><p>I'am Doing an&nbsp;<u>Audit on expense&nbsp;</u>of<strong class=\"ql-font-monospace\">&nbsp;your company</strong>&nbsp;for that I required some data from&nbsp;<em>admin</em>, so can u please share me their contact details?</p><p><br></p><p>thanks and regards</p><p><strong>Akshay Shinde</strong></p>",
@@ -63,7 +63,7 @@
       "status": "In Progress",
       "startDate": "17/01/2020",
       "endDate": "",
-      "process": "Human Resource",
+      "process": "",
       "subProcess": "Hiring Budget"
     },
     {
@@ -87,64 +87,117 @@
       "endDate": "10/05/2020",
       "process": "Human Resource",
       "subProcess": "Onboarding"
-    },
-    {
-      "Id": 10004,
-      "auditType": "Internal Audit",
-      "clientName": "Cyperts Technology",
-      "financialYear": "2021",
-      "status": "In Progress",
-      "startDate": "04/04/2020",
-      "endDate": "",
-      "process": "Human Resource",
-      "subProcess": "Exit"
-    },
-    {
-      "Id": 10005,
-      "auditType": "Internal Audit",
-      "clientName": "Accenture",
-      "financialYear": "2017",
-      "status": "Completed",
-      "startDate": "01/10/2020",
-      "endDate": "03/12/2020",
-      "process": "Order to Cash",
-      "subProcess": "sub process 1"
-    },
-    {
-      "Id": 10006,
-      "auditType": "Internal Audit",
-      "clientName": "IBM",
-      "financialYear": "2012",
-      "status": "In Progress",
-      "startDate": "20/07/2015",
-      "endDate": "",
-      "process": "Procure to Pay",
-      "subProcess": "Sub Process 2"
-    },
-    {
-      "Id": 10007,
-      "auditType": "Internal Audit",
-      "clientName": "Metamagic pvt. Ltd",
-      "financialYear": "2018",
-      "status": "Completed",
-      "startDate": "17/07/2021",
-      "endDate": "10/09/2021",
-      "process": "Record to Report",
-      "subProcess": "sub process 3"
-    },
-    {
-      "Id": 10008,
-      "auditType": "Internal Audit",
-      "clientName": "Wipro",
-      "financialYear": "2010",
-      "status": "Completed",
-      "startDate": "01/12/2021",
-      "endDate": "10/01/2022",
-      "process": "Human Resource",
-      "subProcess": "Appraisal"
     }
   ],
-  "processData": [],
+  "processData":[
+    {
+      "id":1,
+      "projectId":10001,
+      "process":"Human Resource",
+      "subProcess":[
+        {
+          "subProcessName":"Hiring Budget"
+        },
+        {
+          "subProcessName":"Manpower Plan"
+        },
+        {
+          "subProcessName":"Requisition"
+        }
+      ],
+      "location":"Pune",
+      "status":"In Progress"
+    },
+    {
+      "id":2,
+      "projectId":10001,
+      "process":"Order to Cash",
+      "subProcess":[
+        {
+          "subProcessName":"Order Shipping"
+        },
+        {
+          "subProcessName":"Payment Collectons"
+        },
+        {
+          "subProcessName":"Credit Management"
+        }
+      ],
+      "location":"Delhi",
+      "status":"In Progress"
+    },
+    {
+      "id":3,
+      "projectId":10002,
+      "process":"Human Resource",
+      "subProcess":[
+        {
+          "subProcessName":"Payroll"
+        },
+        {
+          "subProcessName":"Appraisal"
+        }
+      ],
+      "location":"Banglore",
+      "status":"In Progress"
+    },
+    {
+      "id":4,
+      "projectId":10002,
+      "process":"Order to cash",
+      "subProcess":[
+        {
+          "subProcessName":"Vendor Payment"
+        },
+        {
+          "subProcessName":"Purchase Order Approval"
+        },
+        {
+          "subProcessName":"Credit Management"
+        }
+      ],
+      "location":"Delhi",
+      "status":"In Progress"
+    },
+    {
+      "id":5,
+      "projectId":10002,
+      "process":"Procure to pay",
+      "subProcess":[
+        {
+          "subProcessName":"Payment Collectons"
+        },
+        {
+          "subProcessName":"Credit Management"
+        },
+        {
+          "subProcessName":"Accounts Receivable"
+        }
+      ],
+      "location":"Haidrabad",
+      "status":"In Progress"
+    },
+    {
+      "id":6,
+      "projectId":10003,
+      "process":"Human Resource",
+      "subProcess":[
+        {
+          "subProcessName":"Hiring Budget"
+        },
+        {
+          "subProcessName":"Onboarding"
+        },
+        {
+          "subProcessName":"Exit"
+        }
+      ],
+      "location":"Mumbai",
+      "status":"In Progress"
+    }
+    
+
+  ],
   "posts": [
     {
       "id": 1,
