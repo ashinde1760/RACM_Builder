@@ -144,6 +144,9 @@ import { RacmBuilderComponent } from './demo/view/racm-builder/racm-builder.comp
 import { DataRequestComponent } from './demo/view/data-request/data-request.component';
 import {EditorModule} from 'primeng/editor';
 import { LoginComponent } from './login/login.component';
+import { WalkthroughComponent } from './demo/view/walkthrough/walkthrough.component';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ProcessMasterComponent } from './demo/view/process-master/process-master.component';
 import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
 
 
@@ -280,7 +283,9 @@ FullCalendarModule.registerPlugins([
         RacmBuilderComponent,
         DataRequestComponent,
         LoginComponent,
-        DatauploadComponent,
+        WalkthroughComponent,
+        ProcessMasterComponent,
+        DatauploadComponent
     ],
     exports:[
         AppTopBarComponent
@@ -288,7 +293,7 @@ FullCalendarModule.registerPlugins([
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, BreadcrumbService
+        PhotoService, ProductService, MenuService, BreadcrumbService, MessageService, ConfirmationService
     ],
     bootstrap: [AppComponent]
 })

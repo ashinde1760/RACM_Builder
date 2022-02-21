@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
@@ -7,6 +7,10 @@ import { PrimeNGConfig } from 'primeng/api';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    @HostListener('window:beforeunload', ['$event'])
+  beforeunloadHandler(event:any) {
+    return false;
+  }
     theme = 'noir';
 
     layoutMode = 'static';
