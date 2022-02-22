@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { ConfirmationService, MessageService } from "primeng/api";
 import { RacmBuilderService } from "../../service/racm-builder.service";
 import { WalkthroughServiceService } from "../../service/walkthrough.service";
-import { ProcessmasterInterface } from "../process-master/processmaster-interface";
 import { Racm } from "../racm-builder/model/racm-interface";
 import { WalkthroughInterface } from "./walkthrough-interface";
 
@@ -18,16 +16,7 @@ export class WalkthroughComponent implements OnInit {
     racmInterfaces!: Racm[];
     racmInterface!: Racm;
 
-    idd: string;
-
-    racmWalkthroughInterfaces!: WalkthroughInterface[];
-    racmWalkthroughInterface!: WalkthroughInterface;
-
-    pmWalkthroughInterfaces!: WalkthroughInterface[];
-    pmWalkthroughInterface!: WalkthroughInterface;
-
     walkthroughInterfaces!: WalkthroughInterface[];
-    walkthroughInterface!: WalkthroughInterface;
 
     _selectedColumns: any[];
 
@@ -40,13 +29,6 @@ export class WalkthroughComponent implements OnInit {
         this.racmService.get().subscribe((data) => {
             this.walkthroughInterfaces = data;
             console.log(this.walkthroughInterfaces);
-
-            // this.walkthroughInterfaces=this.racmWalkthroughInterfaces;
-        });
-
-        this.walkthroughService.get().subscribe((data) => {
-            this.walkthroughInterfaces.concat(data);
-            console.log(this.walkthroughInterfaces);
         });
 
         this.racmCols = [
@@ -55,14 +37,15 @@ export class WalkthroughComponent implements OnInit {
             { field: "risk", header: "Risk" },
             { field: "Process", header: "Process" },
             { field: "subProcess", header: "Sub Process" },
+            { field: "walkthrough", header: "Walkthrough" },
         ];
 
         this._selectedColumns = this.racmCols;
     }
+    //to show filtered columns
     @Input() get selectedColumns(): any[] {
         return this._selectedColumns;
     }
-
     set selectedColumns(val: any[]) {
         //restore original order
         this._selectedColumns = this.racmCols.filter((col) =>

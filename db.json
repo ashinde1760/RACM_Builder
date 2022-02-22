@@ -10,13 +10,36 @@
       "id": "2528"
     },
     {
-      "objective": "Cost Cutting on exp",
-      "frequency": "3",
-      "id": "7084",
-  
-      "risk": "Brand",
-      "control": "Control 2",
+      "objective": "To save money",
+      "frequency": "4",
+      "id": "4252",
+      "buisnessProcess": "process 3",
+      "subProcess": "Sub-Process 4",
+      "risk": "Financial",
+      "control": "Control 3",
       "controlType": "Type 1",
+      "status": "Active"
+    },
+    {
+      "objective": "To save brand name",
+      "frequency": "1",
+      "id": "4910",
+      "buisnessProcess": "process 1",
+      "subProcess": "Sub-Process 1",
+      "risk": "Brand",
+      "control": "Control 1",
+      "controlType": "Type 1",
+      "status": "Active"
+    },
+    {
+      "objective": "to maintain best work env",
+      "frequency": "4",
+      "id": "9810",
+      "buisnessProcess": "process 3",
+      "subProcess": "Sub-Process 3",
+      "risk": "Compliance",
+      "control": "Control 3",
+      "controlType": "Type 3",
       "status": "Active"
     }
   ],
@@ -40,19 +63,19 @@
       "id": 4
     }
   ],
-  "processMaster":[
+  "processMaster": [
     {
-    "process": "PM Process 1",
-    "subProcess": "PM Sprocess 1"
-  },
-  {
-    "process": "PM Process 2",
-    "subProcess": "PM Sprocess 2"
-  },
-  {
-    "process": "PM Process 3",
-    "subProcess": "PM Sprocess 3"
-  }
+      "process": "PM Process 1",
+      "subProcess": "PM Sprocess 1"
+    },
+    {
+      "process": "PM Process 2",
+      "subProcess": "PM Sprocess 2"
+    },
+    {
+      "process": "PM Process 3",
+      "subProcess": "PM Sprocess 3"
+    }
   ],
   "projects": [
     {
