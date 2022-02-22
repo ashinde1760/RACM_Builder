@@ -61,6 +61,12 @@ export class WalkthroughComponent implements OnInit {
         // this.racmData=[...this.racmData,...this.processMasterData];
         // console.log(this.racmData);
 
+
+        // this.racmData=[...this.racmData,...this.processMasterData];
+        // console.log(this.racmData);
+        
+
+
         this.racmCols = [
             // { field: "id", header: "Unique Ref#" },
             { field: "objective", header: "Objective" },
