@@ -17,17 +17,12 @@ export class WalkthroughComponent implements OnInit {
 
     racmInterfaces!: Racm[];
     racmInterface!: Racm;
+    allData: any[];
 
     idd: string;
 
-    racmWalkthroughInterfaces!: WalkthroughInterface[];
-    racmWalkthroughInterface!: WalkthroughInterface;
-
-    pmWalkthroughInterfaces!: WalkthroughInterface[];
-    pmWalkthroughInterface!: WalkthroughInterface;
-
-    walkthroughInterfaces!: WalkthroughInterface[];
-    walkthroughInterface!: WalkthroughInterface;
+    racmData: any[];
+    processMasterData: any[];
 
     _selectedColumns: any[];
 
@@ -38,23 +33,26 @@ export class WalkthroughComponent implements OnInit {
 
     ngOnInit(): void {
         this.racmService.get().subscribe((data) => {
-            this.walkthroughInterfaces = data;
-            console.log(this.walkthroughInterfaces);
-
-            // this.walkthroughInterfaces=this.racmWalkthroughInterfaces;
+            this.racmData = data;
+        //    console.log(this.racmData);
         });
 
         this.walkthroughService.get().subscribe((data) => {
-            this.walkthroughInterfaces.concat(data);
-            console.log(this.walkthroughInterfaces);
+            this.racmData = this.racmData.concat(data);
+            console.log(this.racmData);
         });
+
+
+        // this.racmData=[...this.racmData,...this.processMasterData];
+        // console.log(this.racmData);
+        
+
 
         this.racmCols = [
             // { field: "id", header: "Unique Ref#" },
             { field: "objective", header: "Objective" },
             { field: "risk", header: "Risk" },
-            { field: "Process", header: "Process" },
-            { field: "subProcess", header: "Sub Process" },
+           
         ];
 
         this._selectedColumns = this.racmCols;

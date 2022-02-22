@@ -16,6 +16,11 @@ export class RacmBuilderService {
     return this.http.get<any>('http://localhost:3000/racm');
   }
 
+  getProcessDataByName(pname:string,projectId:string)
+  {
+    return this.http.get<any>(`${environment.url+"/racmControlData"}?process=${pname}&projectId=${projectId}`);
+  }
+
   post(data:any){
     console.log("in post method in service"+data.uRef);
     return this.http.post<any>('http://localhost:3000/racm',data);
@@ -32,7 +37,7 @@ export class RacmBuilderService {
   }
 
   getProcessData(id:number){
-    return this.http.get<any>(`${environment.url+"/processData"}?projectId=${id}`);
+    return this.http.get<any>(`${environment.url+"/racmControlData"}?projectId=${id}`);
   }
 }
 

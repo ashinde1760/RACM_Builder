@@ -1,218 +1,397 @@
 {
-  "racm": [
-    {
-      "objective": "Financial leakage in salary distribution",
-      "frequency": "1 yr",
-      "risk": "Financial Risk",
-      "control": "Control 1",
-      "controlType": "Option 2",
-      "status": "Active",
-      "id": "2528"
-    },
-    {
-      "objective": "Cost Cutting on exp",
-      "frequency": "3",
-      "id": "7084",
-  
-      "risk": "Brand",
-      "control": "Control 2",
-      "controlType": "Type 1",
-      "status": "Active"
-    }
-  ],
-  "datareq": [
-    {
-      "request": "Data Needed for salary Audit",
-      "auditName": "salary Audit",
-      "assignedTo": "shivaji",
-      "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently...<strong><em>please provide me urgently</em></strong></p>",
-      "attachment": "tasdiq@gmail.com",
-      "id": 1,
-      "targetDate": "2022-02-17T18:30:00.000Z"
-    },
-    {
-      "text1": "<p>Hii&nbsp;<strong>Anudit,</strong></p><p>I'am Doing an&nbsp;<u>Audit on expense&nbsp;</u>of<strong class=\"ql-font-monospace\">&nbsp;your company</strong>&nbsp;for that I required some data from&nbsp;<em>admin</em>, so can u please share me their contact details?</p><p><br></p><p>thanks and regards</p><p><strong>Akshay Shinde</strong></p>",
-      "request": "Expences Data",
-      "auditName": "Financial data",
-      "assignedTo": "anudit@anemoitechnologies.com",
-      "startTDate": "2022-02-09T18:30:00.000Z",
-      "endTDate": "2022-03-16T18:30:00.000Z",
-      "id": 4
-    }
-  ],
-  "processMaster":[
-    {
-    "process": "PM Process 1",
-    "subProcess": "PM Sprocess 1"
-  },
-  {
-    "process": "PM Process 2",
-    "subProcess": "PM Sprocess 2"
-  },
-  {
-    "process": "PM Process 3",
-    "subProcess": "PM Sprocess 3"
-  }
-  ],
-  "projects": [
-    {
-      "Id": 10001,
-      "auditType": "Internal Audit",
-      "clientName": "Amezon",
-      "financialYear": "2020",
-      "status": "In Progress",
-      "startDate": "17/01/2020",
-      "endDate": "",
-      "process": "",
-      "subProcess": "Hiring Budget"
-    },
-    {
-      "Id": 10002,
-      "auditType": "Internal Audit",
-      "clientName": "Google",
-      "financialYear": "2018",
-      "status": "In Progress",
-      "startDate": "10/10/2019",
-      "endDate": "",
-      "process": "Human Resource",
-      "subProcess": "Manpower plan"
-    },
-    {
-      "Id": 10003,
-      "auditType": "Internal Audit",
-      "clientName": "Anemoi Technology",
-      "financialYear": "2015",
-      "status": "Completed",
-      "startDate": "13/04/2020",
-      "endDate": "10/05/2020",
-      "process": "Human Resource",
-      "subProcess": "Onboarding"
-    }
-  ],
-  "processData":[
-    {
-      "id":1,
-      "projectId":10001,
-      "process":"Human Resource",
-      "subProcess":[
+    "racmControlData": [
         {
-          "subProcessName":"Hiring Budget"
+          "projectId": 10001,
+            "refId": 50001,
+            "process": "Human Resource",
+            "subProcess": "Hiring Budget",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Banglore",
+            "status":"In Progress"
         },
         {
-          "subProcessName":"Manpower Plan"
+          "projectId": 10002,
+            "refId": 50002,
+            "process": "Human Resource",
+            "subProcess": "Hiring Budget",
+            "risk": "Financial Risk",
+            "control": "Control 2",
+            "walkthrough": "sample1",
+            "location": "Banglore",
+            "status":"In Progress"
         },
         {
-          "subProcessName":"Requisition"
+          "projectId": 10002,
+            "refId": 50003,
+            "process": "Human Resource",
+            "subProcess": "Manpower plan",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Banglore",
+            "status":"In Progress"
+        },
+        {
+          "projectId": 10003,
+            "refId": 50004,
+            "process": "Human Resource",
+            "subProcess": "Requisition",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Pune",
+            "status":"Completed"
+        },
+        {
+          "projectId": 10003,
+            "refId": 50005,
+            "process": "Order to Cash",
+            "subProcess": "Order Shipping",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Delhi",
+            "status":"Completed"
+        },
+        {
+          "projectId": 10002,
+            "refId": 50006,
+            "process": "Order to Cash",
+            "subProcess": "Order Shipping",
+            "risk": "financial",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Delhi",
+            "status":"In Progress"
+        },
+        {
+          "projectId": 10002,
+            "refId": 50007,
+            "process": "Order to Cash",
+            "subProcess": "Order Shipping",
+            "risk": "Compliance",
+            "control": "Control 2",
+            "walkthrough": "sample 1",
+            "location": "Haidrabad",
+            "status":"Completed"
+        },
+        {
+          "projectId": 10001,
+            "refId": 50008,
+            "process": "Order to Cash",
+            "subProcess": "Payment Collection",
+            "risk": "Financial",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Haidrabad",
+            "status":"Completed"
+        },
+        {
+          "projectId": 10001,
+            "refId": 50009,
+            "process": "Order to Cash",
+            "subProcess": "Credit Management",
+            "risk": "Financial",
+            "control": "Control 2",
+            "walkthrough": "sample",
+            "location": "Mumbai",
+            "status":"Completed"
+        },
+        {
+          "projectId": 10003,
+            "refId": 50010,
+            "process": "Order to Cash",
+            "subProcess": "Order Shipping",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Mumbai",
+            "status":"In Progress"
+        },
+        {
+          "projectId": 10002,
+            "refId": 50011,
+            "process": "Procure to pay",
+            "subProcess": "Payment Collection",
+            "risk": "Finance",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Delhi",
+            "status":"In Progress"
+        },
+        {
+          "projectId": 10001,
+            "refId": 50012,
+            "process": "Procure to pay",
+            "subProcess": "Payment Collection",
+            "risk": "Compliance",
+            "control": "Control 2",
+            "walkthrough": "sample1",
+            "location": "Delhi",
+            "status":"Completed"
+        },
+        {
+            "projectId": 10001,
+            "refId": 50013,
+            "process": "Procure to pay",
+            "subProcess": "Credit Management",
+            "risk": "Operational",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Haidrabad",
+            "status":"In Progress"
+        },
+        {
+            "projectId": 10003,
+            "refId": 50014,
+            "process": "Procure to pay",
+            "subProcess": "Account Receivable",
+            "risk": "Finance",
+            "control": "Control 1",
+            "walkthrough": "sample",
+            "location": "Pune",
+            "status":"In Progress"
         }
-      ],
-      "location":"Pune",
-      "status":"In Progress"
-    },
-    {
-      "id":2,
-      "projectId":10001,
-      "process":"Order to Cash",
-      "subProcess":[
+    ],
+    "racm": [
         {
-          "subProcessName":"Order Shipping"
+            "objective": "Financial leakage in salary distribution",
+            "frequency": "1 yr",
+            "risk": "Financial Risk",
+            "control": "Control 1",
+            "controlType": "Option 2",
+            "status": "Active",
+            "id": "2528",
+            "process": "",
+            "subProcess": ""
         },
         {
-          "subProcessName":"Payment Collectons"
-        },
-        {
-          "subProcessName":"Credit Management"
+            "objective": "Cost Cutting on exp",
+            "frequency": "3",
+            "id": "7084",
+            "risk": "Brand",
+            "control": "Control 2",
+            "controlType": "Type 1",
+            "status": "Active"
         }
-      ],
-      "location":"Delhi",
-      "status":"In Progress"
-    },
-    {
-      "id":3,
-      "projectId":10002,
-      "process":"Human Resource",
-      "subProcess":[
+    ],
+    "racmData": [
         {
-          "subProcessName":"Payroll"
+            "refId": 50001,
+            "process": "Human Resource",
+            "subProcess": "Hiring Budget",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample"
         },
         {
-          "subProcessName":"Appraisal"
+            "refId": 50002,
+            "process": "Human Resource",
+            "subProcess": "Hiring Budget",
+            "risk": "Financial Risk",
+            "control": "Control 2",
+            "walkthrough": "sample1"
+        },
+        {
+            "refId": 50003,
+            "process": "Human Resource",
+            "subProcess": "Manpower plan",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample"
+        },
+        {
+            "refId": 50004,
+            "process": "Order to Cash",
+            "subProcess": "",
+            "risk": "Brand",
+            "control": "Control 1",
+            "walkthrough": "sample"
         }
-      ],
-      "location":"Banglore",
-      "status":"In Progress"
-    },
-    {
-      "id":4,
-      "projectId":10002,
-      "process":"Order to cash",
-      "subProcess":[
+    ],
+    "datareq": [
         {
-          "subProcessName":"Vendor Payment"
+            "request": "Data Needed for salary Audit",
+            "auditName": "salary Audit",
+            "assignedTo": "shivaji",
+            "text1": "<p>hello <strong style=\"background-color: rgb(255, 255, 102);\"><em>akshay</em></strong>..i want the data urgently...<strong><em>please provide me urgently</em></strong></p>",
+            "attachment": "tasdiq@gmail.com",
+            "id": 1,
+            "targetDate": "2022-02-17T18:30:00.000Z"
         },
         {
-          "subProcessName":"Purchase Order Approval"
-        },
-        {
-          "subProcessName":"Credit Management"
+            "text1": "<p>Hii&nbsp;<strong>Anudit,</strong></p><p>I'am Doing an&nbsp;<u>Audit on expense&nbsp;</u>of<strong class=\"ql-font-monospace\">&nbsp;your company</strong>&nbsp;for that I required some data from&nbsp;<em>admin</em>, so can u please share me their contact details?</p><p><br></p><p>thanks and regards</p><p><strong>Akshay Shinde</strong></p>",
+            "request": "Expences Data",
+            "auditName": "Financial data",
+            "assignedTo": "anudit@anemoitechnologies.com",
+            "startTDate": "2022-02-09T18:30:00.000Z",
+            "endTDate": "2022-03-16T18:30:00.000Z",
+            "id": 4
         }
-      ],
-      "location":"Delhi",
-      "status":"In Progress"
-    },
-    {
-      "id":5,
-      "projectId":10002,
-      "process":"Procure to pay",
-      "subProcess":[
+    ],
+    "processMaster": [
         {
-          "subProcessName":"Payment Collectons"
+            "process": "PM Process 1",
+            "subProcess": "PM Sprocess 1"
         },
         {
-          "subProcessName":"Credit Management"
-        },
-        {
-          "subProcessName":"Accounts Receivable"
+            "process": "PM Process 2",
+            "subProcess": "PM Sprocess 2"
         }
-      ],
-      "location":"Haidrabad",
-      "status":"In Progress"
-    },
-    {
-      "id":6,
-      "projectId":10003,
-      "process":"Human Resource",
-      "subProcess":[
+    ],
+    "projects": [
         {
-          "subProcessName":"Hiring Budget"
+            "Id": 10001,
+            "auditType": "Internal Audit",
+            "clientName": "Amezon",
+            "financialYear": "2020",
+            "status": "In Progress",
+            "startDate": "17/01/2020",
+            "endDate": ""
         },
         {
-          "subProcessName":"Onboarding"
+            "Id": 10002,
+            "auditType": "Internal Audit",
+            "clientName": "Google",
+            "financialYear": "2018",
+            "status": "In Progress",
+            "startDate": "10/10/2019",
+            "endDate": ""
         },
         {
-          "subProcessName":"Exit"
+            "Id": 10003,
+            "auditType": "Internal Audit",
+            "clientName": "Anemoi Technology",
+            "financialYear": "2015",
+            "status": "Completed",
+            "startDate": "13/04/2020",
+            "endDate": "10/05/2020"
         }
-      ],
-      "location":"Mumbai",
-      "status":"In Progress"
+    ],
+    "processData": [
+        {
+            "id": 1,
+            "projectId": 10001,
+            "process": "Human Resource",
+            "subProcess": [
+                {
+                    "subProcessName": "Hiring Budget"
+                },
+                {
+                    "subProcessName": "Manpower Plan"
+                },
+                {
+                    "subProcessName": "Requisition"
+                }
+            ],
+            "location": "Pune",
+            "status": "In Progress"
+        },
+        {
+            "id": 2,
+            "projectId": 10001,
+            "process": "Order to Cash",
+            "subProcess": [
+                {
+                    "subProcessName": "Order Shipping"
+                },
+                {
+                    "subProcessName": "Payment Collectons"
+                },
+                {
+                    "subProcessName": "Credit Management"
+                }
+            ],
+            "location": "Delhi",
+            "status": "In Progress"
+        },
+        {
+            "id": 3,
+            "projectId": 10002,
+            "process": "Human Resource",
+            "subProcess": [
+                {
+                    "subProcessName": "Payroll"
+                },
+                {
+                    "subProcessName": "Appraisal"
+                }
+            ],
+            "location": "Banglore",
+            "status": "In Progress"
+        },
+        {
+            "id": 4,
+            "projectId": 10002,
+            "process": "Order to cash",
+            "subProcess": [
+                {
+                    "subProcessName": "Vendor Payment"
+                },
+                {
+                    "subProcessName": "Purchase Order Approval"
+                },
+                {
+                    "subProcessName": "Credit Management"
+                }
+            ],
+            "location": "Delhi",
+            "status": "In Progress"
+        },
+        {
+            "id": 5,
+            "projectId": 10002,
+            "process": "Procure to pay",
+            "subProcess": [
+                {
+                    "subProcessName": "Payment Collectons"
+                },
+                {
+                    "subProcessName": "Credit Management"
+                },
+                {
+                    "subProcessName": "Accounts Receivable"
+                }
+            ],
+            "location": "Haidrabad",
+            "status": "In Progress"
+        },
+        {
+            "id": 6,
+            "projectId": 10003,
+            "process": "Human Resource",
+            "subProcess": [
+                {
+                    "subProcessName": "Hiring Budget"
+                },
+                {
+                    "subProcessName": "Onboarding"
+                },
+                {
+                    "subProcessName": "Exit"
+                }
+            ],
+            "location": "Mumbai",
+            "status": "In Progress"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "author": "typicode"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
+        }
+    ],
+    "profile": {
+        "name": "typicode"
     }
-    
-
-  ],
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
 }

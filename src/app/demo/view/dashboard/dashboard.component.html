@@ -90,7 +90,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
 
             <ng-template let-product pTemplate="gridItem">
                 <div>
-                    <div class="card" style="background-color: wheat; color: black ; cursor: pointer;" (click)="onClick(product)">
+                    <div class="card" style="background-color: wheat; color: black ; cursor: pointer;" (click)="onClick(product.Id)">
                         <div>
                             <div style="font-size: xx-large;">
                                 <i class="pi pi-tag product-category-icon" style="font-size: 2rem"></i>
@@ -139,9 +139,9 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
     <p-table [value]="processData" dataKey="name">
         <ng-template pTemplate="header">
             <tr>
-                <th style="width: 3rem"></th>
                 <th pSortableColumn="id">Process Id <p-sortIcon field="processId"></p-sortIcon></th>
-                <th pSortableColumn="processName">Process Name <p-sortIcon field="processName"></p-sortIcon></th>
+                <th pSortableColumn="processName">Process <p-sortIcon field="processName"></p-sortIcon></th>
+                <th pSortableColumn="processName">Sub-Process <p-sortIcon field="processName"></p-sortIcon></th>
                 <th pSortableColumn="location">Location <p-sortIcon field="location"></p-sortIcon></th>
                 <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
                 <th>Action</th>
@@ -149,14 +149,12 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
         </ng-template>
         <ng-template pTemplate="body" let-processData let-expanded="expanded">
             <tr>
-                <td>
-                    <button type="button" pButton pRipple [pRowToggler]="processData" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-                </td>
-                <td>{{processData.id}}</td>
+                <td>{{processData.refId}}</td>
                 <td>{{processData.process}}</td>
+                <td>{{processData.subProcess}}</td>
                 <td>{{processData.location}}</td>
                 <td>{{processData.status}}</td>
-                <td><button pButton (click)="processAudit(processData)"> Go For Audit</button></td>
+                <td><button [disabled]="processData.status==='Completed'" pButton (click)="processAudit(processData)"> Go For Audit</button></td>
             </tr>
         </ng-template>
         <ng-template pTemplate="rowexpansion" let-processData>

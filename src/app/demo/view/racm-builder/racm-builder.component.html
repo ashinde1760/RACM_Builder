@@ -90,19 +90,15 @@
                 >
                     <div>
                         <label for="process">Buisness Process</label>
-                        <p-dropdown
-                            [options]="buisnessProcesses"
-                            [(ngModel)]="selectedBuisnessProcess"
-                            optionLabel="process"
-                            placeholder="Select Process"
+                        <input pInputText
+                            [(ngModel)]="processName"
                         >
-                        </p-dropdown>
                     </div>
 
                     <div>
                         <label for="subProcess">Sub-Process</label>
                         <p-dropdown
-                            [options]="subProcesses"
+                            [options]="racmData1"
                             [(ngModel)]="selectedSubProcess"
                             optionLabel="subProcess"
                             placeholder="Select Sub Process"

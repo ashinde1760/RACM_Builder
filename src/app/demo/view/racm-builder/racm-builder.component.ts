@@ -9,9 +9,9 @@ interface BuisnessProcess {
     process: string;
 }
 
-interface SubProcess {
-    subProcess: string;
-}
+// interface SubProcess {
+//     subProcess: string;
+// }
 
 interface Risk {
     risk: string;
@@ -34,10 +34,13 @@ interface Status {
 })
 export class RacmBuilderComponent {
     cols!: any[];
-    racmInterfaces!: Racm[];
-    racmInterface!: Racm;
+    racmInterfaces!: any[];
+    racmInterface!: any;
     dialogBox!: boolean;
     submitted!: boolean;
+
+    processName:string;
+    projectId:string;
 
     riskOptions!: Risk[];
     selectedRisk!: string;
@@ -54,8 +57,14 @@ export class RacmBuilderComponent {
     buisnessProcesses: BuisnessProcess[];
     selectedBuisnessProcess: string;
 
-    subProcesses: SubProcess[];
+    subProcesses: any[];
     selectedSubProcess: string;
+
+
+
+    // ///////////////////////////////
+
+    racmData1:any[]=[];
 
     constructor(
         private racmService: RacmBuilderService,
@@ -92,23 +101,49 @@ export class RacmBuilderComponent {
             { process: "process 4" },
         ];
 
-        this.subProcesses = [
-            { subProcess: "Sub-Process 1" },
-            { subProcess: "Sub-Process 2" },
-            { subProcess: "Sub-Process 3" },
-            { subProcess: "Sub-Process 4" },
-        ];
+        // this.subProcesses = [
+        //     { subProcess: "Sub-Process 1" },
+        //     { subProcess: "Sub-Process 2" },
+        //     { subProcess: "Sub-Process 3" },
+        //     { subProcess: "Sub-Process 4" },
+        // ];
     }
 
     ngOnInit(): void {
-        this.racmService.get().subscribe((data) => {
-            this.racmInterfaces = data;
-            console.log(this.racmInterface);
+
+        this.processName=localStorage.getItem("processName");
+        this.projectId=localStorage.getItem("projectId");
+
+        console.log(this.processName);
+        
+        
+        this.racmService.getProcessDataByName(this.processName,this.projectId).subscribe((data:any) => {
+            console.log(data);
+            this.racmData1=data;
+            console.log(this.racmData1,"xyyyxxzz");
+
+           
+
+            
+    
         });
 
+        // for(let i=0;i<this.racmData1.length;i++)
+        // {
+        //     // this.subProcesses=this.racmData1;
+        //     // console.log(this.subProcesses,"sss");
+
+        //     console.log("hiiii");
+            
+            
+        // }
+       
+       
+        console.log(this.subProcesses,"aaaaaaaaa");
+        
         this.cols = [
-            { field: "id", header: "Unique Ref#" },
-            { field: "buisnessProcess", header: "Buisness Process" },
+            { field: "refId", header: "Unique Ref#" },
+            { field: "process", header: "Buisness Process" },
             { field: "subProcess", header: "Sub Process" },
             { field: "objective", header: "Objective" },
             { field: "risk", header: "Risk" },
@@ -275,20 +310,20 @@ export class RacmBuilderComponent {
         //this will open dialog box with the existing data prefilled and call saveData()
         this.racmInterface = { ...racmInterface1 };
 
-        this.selectedBuisnessProcess =
-            racmInterface1.buisnessProcess ||
-            racmInterface1.buisnessProcess["process"];
-        this.selectedSubProcess =
-            racmInterface1.subProcess ||
-            racmInterface1.subProcess["subProcess"];
-        this.selectedRisk = racmInterface1.risk || racmInterface1.risk["risk"];
-        this.selectedControl =
-            racmInterface1.control || racmInterface1.control["control"];
-        this.selectedControlTypes =
-            racmInterface1.controlType ||
-            racmInterface1.controlType["controlType"];
-        this.selectedStatus =
-            racmInterface1.status || racmInterface1.status["status"];
+        // this.selectedBuisnessProcess =
+        //     racmInterface1.buisnessProcess ||
+        //     racmInterface1.buisnessProcess["process"];
+        // this.selectedSubProcess =
+        //     racmInterface1.subProcess ||
+        //     racmInterface1.subProcess["subProcess"];
+        // this.selectedRisk = racmInterface1.risk || racmInterface1.risk["risk"];
+        // this.selectedControl =
+        //     racmInterface1.control || racmInterface1.control["control"];
+        // this.selectedControlTypes =
+        //     racmInterface1.controlType ||
+        //     racmInterface1.controlType["controlType"];
+        // this.selectedStatus =
+        //     racmInterface1.status || racmInterface1.status["status"];
 
         this.dialogBox = true;
     }

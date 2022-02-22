@@ -46,11 +46,11 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/main']);
   }
 
-  onClick(data:any){
-    console.log(data.Id);
+  onClick(data:number){
+    console.log(data);
     // this.router.navigate(['/main']);
 
-    this.racmService.getProcessData(data.Id).subscribe(
+    this.racmService.getProcessData(data).subscribe(
       (data)=>{
         console.log(data,"process data");
         this.processData=data;
@@ -70,8 +70,9 @@ export class DashboardComponent implements OnInit {
 
   processAudit(data:any)
   {
-    alert(data.process);
+    console.log(data);    
+    localStorage.setItem("processName",data.process);
+    localStorage.setItem("projectId",data.projectId)
     this.router.navigate(['/main']);
-
   }
 }

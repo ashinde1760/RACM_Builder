@@ -50,6 +50,11 @@ export class AppMenuComponent implements OnInit {
                     },
                 ],
             },
+            {
+                label: "Walkthrough",
+                icon: "pi pi-fw pi-id-card",
+                routerLink: ["/main/uikit/walkthrough"],
+            },
         ];
     }
 }

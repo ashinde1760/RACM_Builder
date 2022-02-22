@@ -1,4 +1,3 @@
-<p>walkthrough works!</p>
 <p-toast></p-toast>
 <div>
     <div>
@@ -29,12 +28,14 @@
     </div>
 
     <div>
-        <p-table [columns]="selectedColumns" [value]="walkthroughInterfaces" responsiveLayout="scroll">
-            <ng-template pTemplate="caption">
+        <div class="p-grid">
+            <div class="p-col-4 offeset 4">
+        <p-table [columns]="selectedColumns" [value]="racmData" responsiveLayout="scroll">
+            <!-- <ng-template pTemplate="caption">
                 <p-multiSelect [options]="racmCols" [(ngModel)]="selectedColumns" optionLabel="header"
                     selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" placeholder="Choose Columns">
                 </p-multiSelect>
-            </ng-template>
+            </ng-template> -->
 
             <ng-template pTemplate="header" let-columns>
                 <tr>
@@ -42,32 +43,77 @@
                     <th *ngFor="let col of columns">
                         {{ col.header }}
                     </th>
-                    <th>Action</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
                     <td>{{rowData.id}}</td>
                     <td *ngFor="let j of columns">{{ rowData[j.field] }}</td>
-                    <button
-                        pButton
-                        pRipple
-                        icon="pi pi-pencil"
-                        (click)="editRowData(rowData)"
-                        class="p-button-rounded"
-                        style="margin: 5px"
-                    ></button>
-                    <button
-                        pButton
-                        pRipple
-                        icon="pi pi-trash"
-                        (click)="deleteRowData(rowData)"
-                        class="p-button-rounded p-button-danger"
-                        style="margin: 5px"
-                    ></button>
                 </tr>
             </ng-template>
 
         </p-table>
+        </div>
+
+
+        <div class="p-col-4 offeset 4">
+            <p-table [columns]="selectedColumns" [value]="processMasterData" responsiveLayout="scroll">
+                <!-- <ng-template pTemplate="caption">
+                    <p-multiSelect [options]="racmCols" [(ngModel)]="selectedColumns" optionLabel="header"
+                        selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" placeholder="Choose Columns">
+                    </p-multiSelect>
+                </ng-template> -->
+    
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                       
+                        <th>
+                           Process
+                        </th>
+                        <th>
+                            Sub-Process
+                         </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <td>{{rowData.process}}</td>
+                        <td>{{rowData.subProcess }}</td>
+                      
+                    </tr>
+                </ng-template>
+    
+            </p-table>
+            </div>
+
+
+            <div class="p-col-4 offeset 4">
+        <p-table [columns]="selectedColumns" [value]="racmData" responsiveLayout="scroll">
+            <!-- <ng-template pTemplate="caption">
+                <p-multiSelect [options]="racmCols" [(ngModel)]="selectedColumns" optionLabel="header"
+                    selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" placeholder="Choose Columns">
+                </p-multiSelect>
+            </ng-template> -->
+
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>Unique Ref#</th>
+                    <th *ngFor="let col of columns">
+                        {{ col.header }}
+                    </th>
+                   
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td>{{rowData.id}}</td>
+                    <td *ngFor="let j of columns">{{ rowData[j.field] }}</td>
+                  
+                </tr>
+            </ng-template>
+
+        </p-table>
+        </div>
+        </div>
         
 </div> 

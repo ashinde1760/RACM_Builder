@@ -38,15 +38,12 @@ import { DatauploadComponent } from './demo/view/dataupload/dataupload.component
                 path:'home', component:DashboardComponent
             },
             {
-                path: 'walkthrough', component: WalkthroughComponent
-            },
-
-            {
                 path: 'main', component: AppMainComponent,
                 children: [
                     {path:'',component:RacmBuilderComponent},
                     {path:'uikit/dataRequest',component:DataRequestComponent},
                     {path:'uikit/dataUpload',component:DatauploadComponent},
+                    {path:'uikit/walkthrough',component:WalkthroughComponent},
                     {path: 'utilities/display', component: DisplayComponent},
                     {path: 'utilities/elevation', component: ElevationComponent},
                     {path: 'utilities/flexbox', component: FlexboxComponent},
