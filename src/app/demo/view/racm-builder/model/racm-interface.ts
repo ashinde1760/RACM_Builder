@@ -1,11 +1,11 @@
 export interface Racm {
-    id?:string;
-    buisnessProcess?:string;
+    refId?:string;
+    process?:string;
     subProcess?:string;
-    objective?:string;
+    location?:string;
     risk?:string;
     control?:string;
-    frequency?:string;
-    controlType?:string;
+    walkthrough?:string;
+    projectId?:string;
     status?:string;
 }

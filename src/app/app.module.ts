@@ -148,6 +148,7 @@ import { WalkthroughComponent } from './demo/view/walkthrough/walkthrough.compon
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ProcessMasterComponent } from './demo/view/process-master/process-master.component';
 import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
+import { ReportGenerationComponent } from './demo/view/report-generation/report-generation.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -285,7 +286,8 @@ FullCalendarModule.registerPlugins([
         LoginComponent,
         WalkthroughComponent,
         ProcessMasterComponent,
-        DatauploadComponent
+        DatauploadComponent,
+        ReportGenerationComponent
     ],
     exports:[
         AppTopBarComponent

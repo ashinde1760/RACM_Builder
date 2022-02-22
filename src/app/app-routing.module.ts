@@ -26,6 +26,7 @@ import { DataRequestComponent } from './demo/view/data-request/data-request.comp
 import { LoginComponent } from './login/login.component';
 import { WalkthroughComponent } from './demo/view/walkthrough/walkthrough.component';
 import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
+import { ReportGenerationComponent } from './demo/view/report-generation/report-generation.component';
 
 @NgModule({
     imports: [
@@ -38,15 +39,13 @@ import { DatauploadComponent } from './demo/view/dataupload/dataupload.component
                 path:'home', component:DashboardComponent
             },
             {
-                path: 'walkthrough', component: WalkthroughComponent
-            },
-
-            {
                 path: 'main', component: AppMainComponent,
                 children: [
                     {path:'',component:RacmBuilderComponent},
                     {path:'uikit/dataRequest',component:DataRequestComponent},
                     {path:'uikit/dataUpload',component:DatauploadComponent},
+                    {path:'uikit/walkthrough',component:WalkthroughComponent},
+                    {path:'uikit/report',component:ReportGenerationComponent},
                     {path: 'utilities/display', component: DisplayComponent},
                     {path: 'utilities/elevation', component: ElevationComponent},
                     {path: 'utilities/flexbox', component: FlexboxComponent},

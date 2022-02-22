@@ -15,10 +15,19 @@ export class WalkthroughComponent implements OnInit {
 
     racmInterfaces!: Racm[];
     racmInterface!: Racm;
+    allData: any[];
 
-    walkthroughInterfaces!: WalkthroughInterface[];
+    idd: string;
+
+    racmData: any[];
+    processMasterData: any[];
 
     _selectedColumns: any[];
+
+    processName: string;
+    projectId: string;
+
+    racmData1: any[] = [];
 
     constructor(
         private racmService: RacmBuilderService,
@@ -26,18 +35,38 @@ export class WalkthroughComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.racmService.get().subscribe((data) => {
-            this.walkthroughInterfaces = data;
-            console.log(this.walkthroughInterfaces);
-        });
+        // this.racmService.get().subscribe((data) => {
+        //     this.racmData = data;
+        // //    console.log(this.racmData);
+        // });
+
+        // this.walkthroughService.get().subscribe((data) => {
+        //     this.racmData = this.racmData.concat(data);
+        //     console.log(this.racmData);
+        // });
+
+        this.processName = localStorage.getItem("processName");
+        this.projectId = localStorage.getItem("projectId");
+
+        console.log(this.processName);
+
+        this.racmService
+            .getProcessDataByName(this.processName, this.projectId)
+            .subscribe((data: any) => {
+                console.log(data);
+                this.racmData = data;
+                console.log(this.racmData1, "getting this in walkthrough??");
+            });
+
+        // this.racmData=[...this.racmData,...this.processMasterData];
+        // console.log(this.racmData);
 
         this.racmCols = [
             // { field: "id", header: "Unique Ref#" },
             { field: "objective", header: "Objective" },
             { field: "risk", header: "Risk" },
-            { field: "Process", header: "Process" },
+            { field: "process", header: "Process" },
             { field: "subProcess", header: "Sub Process" },
-            { field: "walkthrough", header: "Walkthrough" },
         ];
 
         this._selectedColumns = this.racmCols;

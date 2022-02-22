@@ -5,21 +5,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class WalkthroughServiceService {
-  URL = "http://localhost:3000/processMaster";
+  url = "http://localhost:3000/processMaster";
   
   constructor(private http:HttpClient) { }
   get(){
-    return this.http.get<any>('http://localhost:3000/processMaster');  
+    return this.http.get<any>(this.url);  
   }
 
   post(data:any){
     console.log("in post method in service"+data.uRef);
-    return this.http.post<any>('http://localhost:3000/processMaster',data);
+    return this.http.post<any>(this.url,data);
   }
   delete(uRef:any){
     console.log("inside delete in  walkthroughService"+ uRef);
     
-    return this.http.delete<any>('http://localhost:3000/processMaster/'+uRef)
+    return this.http.delete<any>(this.url+uRef)
   }
   // put(uRef:string,data:Racm){
   //   return this.http.put<any>('http://localhost:3000/racm/'+uRef,data);
