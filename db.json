@@ -1,7 +1,7 @@
 {
     "racmControlData": [
         {
-          "projectId": 10001,
+            "projectId": 10001,
             "refId": 50001,
             "process": "Human Resource",
             "subProcess": "Hiring Budget",
@@ -9,10 +9,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Banglore",
-            "status":"In Progress"
+            "status": "In Progress"
         },
         {
-          "projectId": 10002,
+            "projectId": 10002,
             "refId": 50002,
             "process": "Human Resource",
             "subProcess": "Hiring Budget",
@@ -20,10 +20,10 @@
             "control": "Control 2",
             "walkthrough": "sample1",
             "location": "Banglore",
-            "status":"In Progress"
+            "status": "In Progress"
         },
         {
-          "projectId": 10002,
+            "projectId": 10002,
             "refId": 50003,
             "process": "Human Resource",
             "subProcess": "Manpower plan",
@@ -31,10 +31,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Banglore",
-            "status":"In Progress"
+            "status": "In Progress"
         },
         {
-          "projectId": 10003,
+            "projectId": 10003,
             "refId": 50004,
             "process": "Human Resource",
             "subProcess": "Requisition",
@@ -42,10 +42,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Pune",
-            "status":"Completed"
+            "status": "Completed"
         },
         {
-          "projectId": 10003,
+            "projectId": 10003,
             "refId": 50005,
             "process": "Order to Cash",
             "subProcess": "Order Shipping",
@@ -53,10 +53,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Delhi",
-            "status":"Completed"
+            "status": "Completed"
         },
         {
-          "projectId": 10002,
+            "projectId": 10002,
             "refId": 50006,
             "process": "Order to Cash",
             "subProcess": "Order Shipping",
@@ -64,10 +64,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Delhi",
-            "status":"In Progress"
+            "status": "In Progress"
         },
         {
-          "projectId": 10002,
+            "projectId": 10002,
             "refId": 50007,
             "process": "Order to Cash",
             "subProcess": "Order Shipping",
@@ -75,10 +75,10 @@
             "control": "Control 2",
             "walkthrough": "sample 1",
             "location": "Haidrabad",
-            "status":"Completed"
+            "status": "Completed"
         },
         {
-          "projectId": 10001,
+            "projectId": 10001,
             "refId": 50008,
             "process": "Order to Cash",
             "subProcess": "Payment Collection",
@@ -86,10 +86,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Haidrabad",
-            "status":"Completed"
+            "status": "Completed"
         },
         {
-          "projectId": 10001,
+            "projectId": 10001,
             "refId": 50009,
             "process": "Order to Cash",
             "subProcess": "Credit Management",
@@ -97,10 +97,10 @@
             "control": "Control 2",
             "walkthrough": "sample",
             "location": "Mumbai",
-            "status":"Completed"
+            "status": "Completed"
         },
         {
-          "projectId": 10003,
+            "projectId": 10003,
             "refId": 50010,
             "process": "Order to Cash",
             "subProcess": "Order Shipping",
@@ -108,10 +108,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Mumbai",
-            "status":"In Progress"
+            "status": "In Progress"
         },
         {
-          "projectId": 10002,
+            "projectId": 10002,
             "refId": 50011,
             "process": "Procure to pay",
             "subProcess": "Payment Collection",
@@ -119,10 +119,10 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Delhi",
-            "status":"In Progress"
+            "status": "In Progress"
         },
         {
-          "projectId": 10001,
+            "projectId": 10001,
             "refId": 50012,
             "process": "Procure to pay",
             "subProcess": "Payment Collection",
@@ -130,7 +130,7 @@
             "control": "Control 2",
             "walkthrough": "sample1",
             "location": "Delhi",
-            "status":"Completed"
+            "status": "Completed"
         },
         {
             "projectId": 10001,
@@ -141,7 +141,7 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Haidrabad",
-            "status":"In Progress"
+            "status": "In Progress"
         },
         {
             "projectId": 10003,
@@ -152,30 +152,11 @@
             "control": "Control 1",
             "walkthrough": "sample",
             "location": "Pune",
-            "status":"In Progress"
+            "status": "In Progress"
         }
     ],
     "racm": [
-        {
-            "objective": "Financial leakage in salary distribution",
-            "frequency": "1 yr",
-            "risk": "Financial Risk",
-            "control": "Control 1",
-            "controlType": "Option 2",
-            "status": "Active",
-            "id": "2528",
-            "process": "",
-            "subProcess": ""
-        },
-        {
-            "objective": "Cost Cutting on exp",
-            "frequency": "3",
-            "id": "7084",
-            "risk": "Brand",
-            "control": "Control 2",
-            "controlType": "Type 1",
-            "status": "Active"
-        }
+        
     ],
     "racmData": [
         {

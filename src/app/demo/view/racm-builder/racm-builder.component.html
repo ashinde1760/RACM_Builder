@@ -102,10 +102,11 @@
                             [(ngModel)]="selectedSubProcess"
                             optionLabel="subProcess"
                             placeholder="Select Sub Process"
+                            (onChange)="onClick()"
                         >
                         </p-dropdown>
                     </div>
-
+            <div *ngIf="fields">
                     <div class="field">
                         <label for="name">Objective</label>
                         <input
@@ -119,26 +120,21 @@
                     </div>
                     <div>
                         <label for="name">Risk</label>
-                        <p-dropdown
-                            [options]="riskOptions"
-                            [(ngModel)]="selectedRisk"
-                            optionLabel="risk"
-                            placeholder="Select Risk"
+                        <input pInputText
+                            [(ngModel)]="subProcessData.risk"
                         >
-                        </p-dropdown>
                     </div>
                 </div>
+            </div>
 
+            
                 <div class="p-col-4 p-offset-1">
+                    <div *ngIf="fields">
                     <div>
                         <label for="name">Control</label>
-                        <p-dropdown
-                            [options]="controlOptions"
-                            [(ngModel)]="selectedControl"
-                            optionLabel="control"
-                            placeholder="Select Control"
+                        <input pInputText
+                            [(ngModel)]="subProcessData.control"
                         >
-                        </p-dropdown>
                     </div>
                     <div class="field">
                         <label for="name">frequency</label>
@@ -164,16 +160,13 @@
                     </div>
                     <div>
                         <label for="name">Status</label>
-                        <p-dropdown
-                            [options]="statusOptions"
-                            [(ngModel)]="selectedStatus"
-                            optionLabel="status"
-                            placeholder="Select Status"
+                        <input pInputText
+                            [(ngModel)]="subProcessData.status"
                         >
-                        </p-dropdown>
                     </div>
                 </div>
             </div>
+        </div>
         </ng-template>
         <ng-template pTemplate="footer">
             <button

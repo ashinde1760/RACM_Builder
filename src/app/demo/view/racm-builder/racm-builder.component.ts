@@ -39,8 +39,8 @@ export class RacmBuilderComponent {
     dialogBox!: boolean;
     submitted!: boolean;
 
-    processName:string;
-    projectId:string;
+    processName: string;
+    projectId: string;
 
     riskOptions!: Risk[];
     selectedRisk!: string;
@@ -58,89 +58,53 @@ export class RacmBuilderComponent {
     selectedBuisnessProcess: string;
 
     subProcesses: any[];
-    selectedSubProcess: string;
-
-
 
     // ///////////////////////////////
 
-    racmData1:any[]=[];
+    racmData1: any[] = [];
+    selectedSubProcess: any;
+    subProcessData: Racm;
+    fields: boolean = false;
 
     constructor(
         private racmService: RacmBuilderService,
         private messageService: MessageService,
         private confirmatonService: ConfirmationService
     ) {
-        this.riskOptions = [
-            { risk: "Financial" },
-            { risk: "Brand" },
-            { risk: "Operational" },
-            { risk: "Compliance" },
-        ];
-
-        this.controlOptions = [
-            { control: "Control 1" },
-            { control: "Control 2" },
-            { control: "Control 3" },
-            { control: "Control 4" },
-        ];
-
         this.controlTypesOptions = [
-            { controlType: "Type 1" },
-            { controlType: "Type 2" },
-            { controlType: "Type 3" },
-            { controlType: "Type 4" },
+            { controlType: "Automated" },
+            { controlType: "Manual" },
+            { controlType: "Operating" },
+            { controlType: "Financial" },
+            { controlType: "Compliance" },
         ];
 
         this.statusOptions = [{ status: "Active" }, { status: "Inactive" }];
-
-        this.buisnessProcesses = [
-            { process: "process 1" },
-            { process: "process 2" },
-            { process: "process 3" },
-            { process: "process 4" },
-        ];
-
-        // this.subProcesses = [
-        //     { subProcess: "Sub-Process 1" },
-        //     { subProcess: "Sub-Process 2" },
-        //     { subProcess: "Sub-Process 3" },
-        //     { subProcess: "Sub-Process 4" },
-        // ];
     }
 
     ngOnInit(): void {
-
-        this.processName=localStorage.getItem("processName");
-        this.projectId=localStorage.getItem("projectId");
+        this.processName = localStorage.getItem("processName");
+        this.projectId = localStorage.getItem("projectId");
 
         console.log(this.processName);
-        
-        
-        this.racmService.getProcessDataByName(this.processName,this.projectId).subscribe((data:any) => {
-            console.log(data);
-            this.racmData1=data;
-            console.log(this.racmData1,"xyyyxxzz");
 
-           
+        this.racmService.get().subscribe(
+            (data)=>{
+                this.racmInterfaces=data;
+            },
+            (error)=>{
+                alert("something went wrong")
+            }
+        )
 
-            
-    
-        });
 
-        // for(let i=0;i<this.racmData1.length;i++)
-        // {
-        //     // this.subProcesses=this.racmData1;
-        //     // console.log(this.subProcesses,"sss");
+        this.racmService
+            .getProcessDataByName(this.processName, this.projectId)
+            .subscribe((data: any) => {
+                this.racmData1 = data;
+                console.log(this.racmData1);
+            });
 
-        //     console.log("hiiii");
-            
-            
-        // }
-       
-       
-        console.log(this.subProcesses,"aaaaaaaaa");
-        
         this.cols = [
             { field: "refId", header: "Unique Ref#" },
             { field: "process", header: "Buisness Process" },
@@ -152,6 +116,18 @@ export class RacmBuilderComponent {
             { field: "controlType", header: "Type of Control" },
             { field: "status", header: "Status" },
         ];
+    }
+
+    onClick() {
+        this.fields = true;
+        for (let i = 0; i < this.racmData1.length; i++) {
+            if (
+                this.racmData1[i].subProcess ===
+                this.selectedSubProcess.subProcess
+            ) {
+                this.subProcessData = this.racmData1[i];
+            }
+        }
     }
 
     openNew() {
@@ -187,6 +163,7 @@ export class RacmBuilderComponent {
                         // {
                         //     this.racmInterface.buisnessProcess =this.selectedBuisnessProcess['process']
                         // }
+                        this.racmInterface.process=this.processName;
 
                         if (
                             this.selectedSubProcess["subProcess"] === undefined
@@ -198,19 +175,7 @@ export class RacmBuilderComponent {
                                 this.selectedSubProcess["subProcess"];
                         }
 
-                        if (this.selectedRisk["risk"] === undefined) {
-                            this.racmInterface.risk = this.selectedRisk;
-                        } else {
-                            this.racmInterface.risk = this.selectedRisk["risk"];
-                        }
-
-                        if (this.selectedControl["control"] === undefined) {
-                            this.racmInterface.control = this.selectedControl;
-                        } else {
-                            this.racmInterface.control =
-                                this.selectedControl["control"];
-                        }
-
+                     
                         if (
                             this.selectedControlTypes["controlType"] ===
                             undefined
@@ -222,12 +187,7 @@ export class RacmBuilderComponent {
                                 this.selectedControlTypes["controlType"];
                         }
 
-                        if (this.selectedControlTypes["status"] === undefined) {
-                            this.racmInterface.status = this.selectedStatus;
-                        } else {
-                            this.racmInterface.status =
-                                this.selectedStatus["status"];
-                        }
+                     
 
                         Swal.fire("Saved!", "", "success");
                         //Logic for Update
