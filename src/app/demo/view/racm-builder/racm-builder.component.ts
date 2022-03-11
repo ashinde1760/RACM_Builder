@@ -3,7 +3,7 @@ import { ConfirmationService, MessageService } from "primeng/api";
 import Swal from "sweetalert2";
 
 import { RacmBuilderService } from "../../service/racm-builder.service";
-import { Racm } from "./model/racm-interface";
+import { Racm, Racm1 } from "./model/racm-interface";
 
 interface BuisnessProcess {
     process: string;
@@ -35,7 +35,7 @@ interface Status {
 export class RacmBuilderComponent {
     cols!: any[];
     racmInterfaces!: any[];
-    racmInterface!: any;
+    racmInterface!: Racm1;
     dialogBox!: boolean;
     submitted!: boolean;
 
@@ -86,17 +86,19 @@ export class RacmBuilderComponent {
         this.processName = localStorage.getItem("processName");
         this.projectId = localStorage.getItem("projectId");
 
+
+
         console.log(this.processName);
 
-        this.racmService.get().subscribe(
-            (data)=>{
-                this.racmInterfaces=data;
+        this.racmService.get(this.processName,this.projectId).subscribe(
+            (data) => {
+                this.racmInterfaces = data;
+                console.log(this.racmInterfaces, "all racm data");
             },
-            (error)=>{
-                alert("something went wrong")
+            (error) => {
+                alert("something went wrong");
             }
-        )
-
+        );
 
         this.racmService
             .getProcessDataByName(this.processName, this.projectId)
@@ -113,7 +115,7 @@ export class RacmBuilderComponent {
             { field: "risk", header: "Risk" },
             { field: "control", header: "Control" },
             { field: "frequency", header: "Freq" },
-            { field: "controlType", header: "Type of Control" },
+            { field: "typeOfControl", header: "Type of Control" },
             { field: "status", header: "Status" },
         ];
     }
@@ -138,9 +140,10 @@ export class RacmBuilderComponent {
     saveData() {
         this.submitted = true;
         if (this.racmInterface.objective.trim()) {
-            if (this.racmInterface.id) {
-                this.racmInterfaces[this.findIndexById(this.racmInterface.id)] =
-                    this.racmInterface;
+            if (this.racmInterface.refId) {
+                this.racmInterfaces[
+                    this.findIndexById(this.racmInterface.refId)
+                ] = this.racmInterface;
 
                 //swal fire code starts here
                 this.hideDialog();
@@ -153,46 +156,12 @@ export class RacmBuilderComponent {
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        // this.racmInterface.buisnessProcess = this.selectedBuisnessProcess["process"];
-
-                        // if(this.selectedBuisnessProcess["process"]===undefined)
-                        // {
-                        //     this.racmInterface.buisnessProcess =this.selectedBuisnessProcess
-                        // }
-                        // else
-                        // {
-                        //     this.racmInterface.buisnessProcess =this.selectedBuisnessProcess['process']
-                        // }
-                        this.racmInterface.process=this.processName;
-
-                        if (
-                            this.selectedSubProcess["subProcess"] === undefined
-                        ) {
-                            this.racmInterface.subProcess =
-                                this.selectedSubProcess;
-                        } else {
-                            this.racmInterface.subProcess =
-                                this.selectedSubProcess["subProcess"];
-                        }
-
-                     
-                        if (
-                            this.selectedControlTypes["controlType"] ===
-                            undefined
-                        ) {
-                            this.racmInterface.controlType =
-                                this.selectedControlTypes;
-                        } else {
-                            this.racmInterface.controlType =
-                                this.selectedControlTypes["controlType"];
-                        }
-
-                     
+                        this.racmInterface.process = this.processName;
 
                         Swal.fire("Saved!", "", "success");
                         //Logic for Update
                         this.racmService
-                            .put(this.racmInterface.id, this.racmInterface)
+                            .put(this.racmInterface.refId, this.racmInterface)
                             .subscribe(
                                 (data: any) => {
                                     this.ngOnInit();
@@ -208,17 +177,17 @@ export class RacmBuilderComponent {
                     }
                 });
             } else {
-                this.racmInterface.id = this.createId();
-                //code for Saving New Client
-                this.racmInterface.buisnessProcess =
-                    this.selectedBuisnessProcess["process"];
+                this.racmInterface.refId = this.createId();
+                this.racmInterface.process = this.processName;
                 this.racmInterface.subProcess =
                     this.selectedSubProcess["subProcess"];
-                this.racmInterface.risk = this.selectedRisk["risk"];
-                this.racmInterface.control = this.selectedControl["control"];
-                this.racmInterface.controlType =
+                this.racmInterface.risk = this.subProcessData.risk;
+                this.racmInterface.control = this.subProcessData.control;
+                this.racmInterface.typeOfControl =
                     this.selectedControlTypes["controlType"];
-                this.racmInterface.status = this.selectedStatus["status"];
+                this.racmInterface.status = this.subProcessData.status;
+                this.racmInterface.projectId=this.projectId;
+                //code for Saving New Client
 
                 this.racmService.post(this.racmInterface).subscribe(
                     (data: any) => {

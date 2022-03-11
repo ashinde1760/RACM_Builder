@@ -5,56 +5,134 @@
     <!-- </p-fileUpload> -->
 
     <input type="file" id="input" (change)="excelRead($event)" />
-    </div>
+</div>
 
 
 
 
-<div *ngIf="report" style="margin-top: 50px;">
-    
+<div *ngIf="report" style="margin-top: 50px">
     <p-card>
-        <div class="p-grid">
-            <div class="p-col-9" style="text-align: center; background-color: darkmagenta;color: white;">
-                {{reportGenerationInterface.clientName}}
+        <div class="p-grid" style="border: 1px solid black">
+            <div
+                class="p-col-9"
+                style="
+                    text-align: center;
+                    background-color: darkmagenta;
+                    color: white;
+                "
+            >
+                <h2>{{ reportGenerationInterface.clientName }}</h2>
             </div>
-            <div class="p-col-3" style="text-align: center; background-color: aqua;">
-                {{reportGenerationInterface.reportNum}}
+            <div
+                class="p-col-3"
+                style="text-align: center; background-color: aqua"
+            >
+                <h2>{{ reportGenerationInterface.reportNum }}</h2>
             </div>
         </div>
         <div class="p-grid">
-            <div class="p-col">
-                <p-table responsiveLayout="scroll">
+            <div class="p-col-4">
+                <h3>Observation</h3>
+            </div>
+            <div class="p-col-4">
+                <h3>Impact</h3>
+            </div>
+            <div class="p-col-4">
+                <h3>Analysis Chart</h3>
+            </div>
+        </div>
+        <hr />
+        <div class="p-grid">
+            <div class="p-col-4">
+                {{ reportGenerationInterface.detailedOb }}
+            </div>
+            <div class="p-col-4">
+                {{ reportGenerationInterface.impact }}
+            </div>
+            <div class="p-col-4">
+                <p-chart
+                    type="doughnut"
+                    [data]="data"
+                    [options]="chartOptions"
+                    [style]="{ width: '50px' }"
+                ></p-chart>
+            </div>
+        </div>
+        <!-- <p-table responsiveLayout="scroll" >
                     
-                    <ng-template pTemplate="header">
+                    <ng-template pTemplate="header" style="border: 1px solid black;">
+                       
                         <tr>
                             <th>Observation</th>
                             <th>Impact</th>
                             <th>Analysis Chart</th>
                         </tr>
-                    <!-- </ng-template>
-
-                    <ng-template pTemplate="body" > -->
+                  
                         <tr>
-                            <th>{{reportGenerationInterface.detailedOb}}</th>
-                            <th>{{reportGenerationInterface.impact}}</th>
-                            <th>
+                            <td>{{reportGenerationInterface.detailedOb}}</td>
+                            <td>{{reportGenerationInterface.impact}}</td>
+                            <td>
                                 <p-chart type="doughnut" [data]="data" [options]="chartOptions" [style]="{'width': '40%'}"></p-chart>
-                            </th>
+                            </td>
                         </tr>
                     </ng-template>
 
-                </p-table>
-            </div>
+                </p-table> -->
+        <!-- </div>
           
-        </div>
+        </div> -->
 
+        <hr />
 
         <div class="p-grid">
-            <div class="p-col">
-              
+            <div class="p-col-4">
+                <h3>Risk</h3>
             </div>
-          
+
+            <div class="p-col-4">
+                <h3>Control</h3>
+            </div>
+            <div class="p-col-4">
+                <h3>Analysis Chart</h3>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-4">
+                {{ reportGenerationInterface.risk }}
+            </div>
+
+            <div class="p-col-4">
+                {{ reportGenerationInterface.control }}
+            </div>
+            <div class="p-col-4">
+                <p-chart
+                    type="bar"
+                    [data]="data"
+                    [options]="basicOptions"
+                ></p-chart>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="p-grid">
+            <div class="p-col-2">
+                <h3>Backgoround:</h3>
+            </div>
+
+            <div class="p-col-10">
+                {{ reportGenerationInterface.background }}
+            </div>
+        </div>
+        <hr />
+        <div class="p-grid">
+            <div class="p-col-2">
+                <h3>Root Cause:</h3>
+            </div>
+
+            <div class="p-col-10">
+                {{ reportGenerationInterface.rootCause }}
+            </div>
         </div>
     </p-card>
-
 </div>

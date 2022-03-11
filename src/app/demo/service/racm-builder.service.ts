@@ -12,8 +12,8 @@ export class RacmBuilderService {
 
   constructor(private http:HttpClient) { }
   
-  get(){
-    return this.http.get<any>('http://localhost:3000/racm');
+  get(pname:string,id:string){
+    return this.http.get<any>(`${environment.url+"/racm"}?process=${pname}&projectId=${id}`);
   }
 
   getProcessDataByName(pname:string,projectId:string)

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatareqServiceService } from '../../service/datareq-service.service';
 import {DataUp} from './DataUp'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dataupload',
@@ -14,6 +15,9 @@ export class DatauploadComponent implements OnInit {
 
   submitted: boolean;
   dataUploadDialog: boolean;
+
+  rangeDate: Date;
+ 
 
   constructor(private dataReqService: DatareqServiceService) { }
 
@@ -43,8 +47,19 @@ export class DatauploadComponent implements OnInit {
   }
   save(){
     this.submitted = true;
+    
     console.log("data upload contents",this.dataUpload);
     this.dataUploadDialog = false;
+
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Data Has Sucessfully Uploaded...You Can check it in Data workspace section',
+      showConfirmButton: false,
+      timer: 3000
+    })
+
+   
     
   }
 

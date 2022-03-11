@@ -3,8 +3,7 @@ export interface Datareq {
     request?:string;
     auditName?:string;
     assignedTo?:string;
-    startTDate?:Date;
-    endTDate?:Date;
+    rangeDates?:Date;
     text1?:string;
     attachment?:string;
     

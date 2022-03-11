@@ -54,11 +54,12 @@ export class DataRequestComponent implements OnInit {
 
   _selectedColumns:any[];
 
-    STDate: Date;
-    ETDate: Date;
+    TDate: Date;
+    rangeDate: Date;
+ 
     
-    selectedStartTDate: Date;
-    selectedEndTDate: Date;
+    selectedTDate: Date;
+   
   
 
  
@@ -132,21 +133,16 @@ publish() {
                     Swal.fire("Saved!", "", "success");
                     //Logic for Update
 
-                    if(this.STDate===undefined)
+                    
+                    
+
+                    if(this.rangeDate===undefined)
                         {
-                            this.dataRequest.startTDate =this.STDate
+                            this.dataRequest.rangeDates =this.rangeDate
                         }
                         else
                         {
-                            this.dataRequest.startTDate =this.STDate
-                        }
-                        if(this.ETDate===undefined)
-                        {
-                            this.dataRequest.endTDate =this.ETDate
-                        }
-                        else
-                        {
-                            this.dataRequest.endTDate =this.ETDate
+                            this.dataRequest.rangeDates =this.rangeDate
                         }
 
                     // this.dataRequest.targetDate = this.TDate;
@@ -172,9 +168,10 @@ publish() {
         }
         else {
            
-            this.dataRequest.startTDate = this.STDate;
-            this.dataRequest.endTDate = this.ETDate;
-
+            this.dataRequest.rangeDates = this.rangeDate;
+           
+            console.log("kkkk", this.dataRequest.rangeDates);
+            
            
             this.dataReqService.publishDataReq(this.dataRequest).subscribe(
                 (data: any) => {
@@ -202,8 +199,8 @@ publish() {
  editRowData(dataRequest:Datareq){
     //this will open dialog box with the existing data prefilled and call saveData()
     this.dataRequest={ ...dataRequest};
-    this.selectedStartTDate = dataRequest.startTDate;
-    this.selectedEndTDate = dataRequest.endTDate;
+   // this.selectedTDate = dataRequest.rangeDates;
+    
     this.dataReqDialog=true;
   }
 

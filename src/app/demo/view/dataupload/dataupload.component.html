@@ -41,8 +41,8 @@
 
                     
 
-                    <th pSortableColumn="startTDate">Start Target Date</th>
-                    <th pSortableColumn="endTDate">End Target Date</th>
+                    <th pSortableColumn="TargetDate">Target Date</th>
+                    
 
                     <th pSortableColumn="text1">Message</th>
                     
@@ -59,8 +59,7 @@
                     <td>{{dataUploads.request}}</td>
                     <td>{{dataUploads.auditName}}</td>
                    
-                    <td>{{dataUploads.startTDate | date:'d MMM, y'}}</td>
-                    <td>{{dataUploads.endTDate | date:'d MMM, y'}}</td>
+                    <td>{{dataUploads.rangeDates | date}}</td>
                     <td> <span [innerHTML]="dataUploads.text1"></span></td>
                    
                     <!-- <td>
@@ -86,33 +85,19 @@
     <ng-template pTemplate="content">
         <div class="p-formgrid p-grid">
             <div class="p-field p-col">
-                <label for="price">Request</label>
+                <label for="price">Data Requirement for Testing</label>
                 <input type="text" readonly pInputText id="name" [(ngModel)]="dataUpload.request" required autofocus />
                 <small class="p-invalid" *ngIf="submitted && !dataUpload.request">Name is required.</small>
                 
             </div>
-            <div class="p-field p-col">
-                <label for="quantity">Audit Name</label>
-                <input type="text" readonly pInputText id="name" [(ngModel)]="dataUpload.auditName" required autofocus />
-                <small class="p-invalid" *ngIf="submitted && !dataUpload.auditName">Name is required.</small>
-                
-            </div>
         </div>
 
-        <div class="p-formgrid p-grid">
-
- 
-            
-            <div class="p-field p-col">
-                <label for="startTDate">Start Target Date</label>
-                <input type="datetime" readonly pInputText id="name" [(ngModel)]="dataUpload.startTDate" required autofocus />
-                
-            </div>
-            <div class="p-field p-col">
-                <label for="startTDate">End Target Date</label>
-                <input type="datetime" readonly pInputText id="name" [(ngModel)]="dataUpload.endTDate" required autofocus />
-            </div>            
+        <div class="p-field">
+            <label for="quantity">Samples to be tested for the dates</label>
+            <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" inputId="range"></p-calendar>                
         </div>
+
+
         <div class="p-field">
             <p-fileUpload
                 mode="basic"
@@ -131,15 +116,15 @@
                
             </div>
         </div>
-        
-        <div class="p-field">
-            <label for="reason">Reason for non-availability of sample</label>
-            <p-editor [(ngModel)]="dataUpload.reason" [style]="{'height':'220px'}"></p-editor>
-            
-        </div>
-       
 
-        
+        <div class="p-field">
+            <div class="p-field p-col">
+                <label for="assignedTo">Reason for non-availability of sample</label>
+                <input type="text" pInputText id="name" [(ngModel)]="dataUpload.reason" required autofocus />
+                <small class="p-invalid" *ngIf="submitted && !dataUpload.assignedTo">Name is required.</small>
+               
+            </div>
+        </div>    
     </ng-template>
 
     <ng-template pTemplate="footer">

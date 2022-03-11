@@ -117,10 +117,9 @@
               
                         <th pSortableColumn="auditName">Audit Name <p-sortIcon field="auditName"></p-sortIcon></th>
                         <th pSortableColumn="assignedTo">Assigned To <p-sortIcon field="assignedTo"></p-sortIcon></th>
-                        <th pSortableColumn="startTDate">Start Target Date <p-sortIcon field="startTDate"></p-sortIcon></th>
-                        <th pSortableColumn="endTDate">End Target Date <p-sortIcon field="endTDate"></p-sortIcon></th>
-                        <th pSortableColumn="text1">Message <p-sortIcon field="text1"></p-sortIcon></th>
-                        <th pSortableColumn="attachment">Attachment <p-sortIcon field="attachment"></p-sortIcon></th>
+                        <th pSortableColumn="rangeDates">Target Date <p-sortIcon field="rangeDates"></p-sortIcon></th>
+                        <!-- <th pSortableColumn="text1">Message <p-sortIcon field="text1"></p-sortIcon></th>
+                        <th pSortableColumn="attachment">Attachment <p-sortIcon field="attachment"></p-sortIcon></th> -->
                         <th>Action</th>
             
                         <th></th>
@@ -141,19 +140,17 @@
 						<td><span class="p-column-title">Assigned To</span>
 							{{product.assignedTo}}
 						</td>
-                        <td><span class="p-column-title">Start Target Date</span>
-							{{product.startTDate | date}}
+                        <td><span class="p-column-title">Target Date</span>
+							{{product.rangeDates | date}}
 						</td>
-                        <td><span class="p-column-title">End Target Date</span>
-							{{product.endTDate | date}}
-						</td>
-                        <td><span class="p-column-title">Message</span>
+    
+                        <!-- <td><span class="p-column-title">Message</span>
                             <span [innerHTML]="product.text1"></span>
 						</td>
                         <td><span class="p-column-title">Attachment</span>
                             
 							{{product.attachment}}
-						</td>
+						</td> -->
 						
 						
 						<td>
@@ -281,23 +278,17 @@
         <div class="p-formgrid p-grid">
             
             <div class="p-field p-col">
-                <label for="startTDate">Start Target Date</label>
-                <p-calendar [(ngModel)]="STDate" [ngModelOptions]="{standalone: true}"></p-calendar>
-            </div>
-            <div class="p-field p-col">
-                <label for="endTDate">End Target Date</label>
-                <p-calendar [(ngModel)]="ETDate" [ngModelOptions]="{standalone: true}"></p-calendar>
-            </div>            
-        </div>
-        <div class="p-field">
+                <label for="basic">Target Date</label>
+                <p-calendar inputId="basic" [(ngModel)]="rangeDate"></p-calendar>
+            </div>         
+            
             <div class="p-field p-col">
                 <label for="assignedTo">Assigned To</label>
                 <input type="text" pInputText id="name" [(ngModel)]="dataRequest.assignedTo" required autofocus />
                 <small class="p-invalid" *ngIf="submitted && !dataRequest.assignedTo">Name is required.</small>
                
             </div>
-        </div>
-        
+        </div> 
         <div class="p-field">
             <p-editor [(ngModel)]="dataRequest.text1" [style]="{'height':'220px'}"></p-editor>
             

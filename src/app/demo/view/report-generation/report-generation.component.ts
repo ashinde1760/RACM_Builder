@@ -10,12 +10,10 @@ import { ReportGeneration } from "./model/report-generation";
     styleUrls: ["./report-generation.component.scss"],
 })
 export class ReportGenerationComponent implements OnInit {
+    
     data: any;
-
     chartOptions: any;
-
     subscription: Subscription;
-
     config: any;
 
     report: boolean = false;
@@ -152,4 +150,6 @@ export class ReportGenerationComponent implements OnInit {
             },
         };
     }
+
+    
 }
