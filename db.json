@@ -42,7 +42,7 @@
       "control": "Control 1",
       "walkthrough": "sample",
       "location": "Pune",
-      "status": "Completed"
+      "status": "In Progress"
     },
     {
       "projectId": 10003,
@@ -157,6 +157,45 @@
   ],
   "racm": [
     {
+      "objective": "Order audit",
+      "frequency": "2",
+      "refId": "5733",
+      "process": "Order to Cash",
+      "subProcess": "Order Shipping",
+      "risk": "order failure",
+      "control": "process flow should be correctly followed",
+      "typeOfControl": "Automated",
+      "status": "Completed",
+      "projectId": "10002",
+      "id": 1
+    },
+    {
+      "objective": "sample",
+      "frequency": "3",
+      "refId": "6045",
+      "process": "Order to Cash",
+      "subProcess": "Order Shipping",
+      "risk": "Order Shipping problem",
+      "control": "shipping should be done after order",
+      "typeOfControl": "Operating",
+      "status": "Completed",
+      "projectId": "10002",
+      "id": 2
+    },
+    {
+      "objective": "Account details",
+      "frequency": "4",
+      "refId": "5673",
+      "process": "Procure to pay",
+      "subProcess": "Account Receivable",
+      "risk": "Finance",
+      "control": "Control 1",
+      "typeOfControl": "Manual",
+      "status": "In Progress",
+      "projectId": "10003",
+      "id": 3
+    },
+    {
       "objective": "Appraisal process audit",
       "frequency": "2",
       "refId": "5733",
@@ -186,7 +225,7 @@
       "objective": "Account details",
       "frequency": "4",
       "refId": "5673",
-      "process": "- Human resources",
+      "process": "Human Resource",
       "subProcess": "Payroll",
       "risk": "extra salary getting credited",
       "control": "check working days before salary credit",
