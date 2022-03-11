@@ -84,7 +84,7 @@ export class RacmBuilderComponent {
 
     ngOnInit(): void {
         this.processName = localStorage.getItem("processName");
-        this.projectId = localStorage.getItem("projectId");
+        this.projectId = localStorage.getItem("projectId"); 
 
 
 
