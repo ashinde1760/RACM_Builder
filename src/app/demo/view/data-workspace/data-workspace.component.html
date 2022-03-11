@@ -1,0 +1,46 @@
+<div class="dashboard">
+    <h3>Data Workspace</h3>
+    <div class="p-grid">
+        <div class="p-col-12 p-md-6 p-lg-2">
+            <!-- <div class="stats"> -->
+            <div class="stats-icon">
+                <div>
+                <label>Process </label>
+                <input pInputText [value]="processName" readonly>
+            </div>
+            <div>
+                <label for="name">Sub Process </label><br>
+                <p-dropdown [(ngModel)]="selectedProcess" optionLabel="subProcess" placeholder="Select Proceses"
+                    [options]="processes" (onChange)="method()">
+                </p-dropdown>
+                <!-- <p-button (onClick)="method()">Display</p-button> -->
+            </div>
+               
+            </div>
+            
+        </div>
+       
+    </div>
+    <p-table [columns]="cols" [value]="processes" [rowHover]="true" [rows]="7" [paginator]="true"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [scrollable]="true"
+    responsiveLayout="scroll" scrollHeight="350px">
+    
+    <ng-template pTemplate="header" let-columns> 
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    
+    </ng-template>
+    
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>

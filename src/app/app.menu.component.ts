@@ -51,6 +51,11 @@ export class AppMenuComponent implements OnInit {
                 ],
             },
             {
+                label: "Data Workspace",
+                icon: "pi pi-fw pi-id-card",
+                routerLink: ["/main/uikit/dataWorkspace"],
+            },
+            {
                 label: "Walkthrough",
                 icon: "pi pi-fw pi-id-card",
                 routerLink: ["/main/uikit/walkthrough"],

@@ -18,6 +18,7 @@ export class RacmBuilderService {
 
   getProcessDataByName(pname:string,projectId:string)
   {
+    
     return this.http.get<any>(`${environment.url+"/racmControlData"}?process=${pname}&projectId=${projectId}`);
   }
 

@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { WalkthroughComponent } from './demo/view/walkthrough/walkthrough.component';
 import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
 import { ReportGenerationComponent } from './demo/view/report-generation/report-generation.component';
+import { DataWorkspaceComponent } from './demo/view/data-workspace/data-workspace.component';
 
 @NgModule({
     imports: [
@@ -43,6 +44,7 @@ import { ReportGenerationComponent } from './demo/view/report-generation/report-
                 children: [
                     {path:'',component:RacmBuilderComponent},
                     {path:'uikit/dataRequest',component:DataRequestComponent},
+                    {path:'uikit/dataWorkspace',component:DataWorkspaceComponent},
                     {path:'uikit/dataUpload',component:DatauploadComponent},
                     {path:'uikit/walkthrough',component:WalkthroughComponent},
                     {path:'uikit/report',component:ReportGenerationComponent},
