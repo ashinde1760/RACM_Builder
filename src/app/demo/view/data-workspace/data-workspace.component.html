@@ -20,7 +20,7 @@
                 <br>
                 <label for="name">Sub Process </label><br><br>
                 <p-dropdown [(ngModel)]="selectedProcess" optionLabel="subProcess" placeholder="Select Proceses"
-                    [options]="processes">
+                    [options]="processes1">
                 </p-dropdown>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <br>
                 <label for="name">Risk </label><br><br>
                 <p-dropdown [(ngModel)]="selectedRisks" optionLabel="risk" placeholder="Select Risk"
-                    [options]="processes" (onChange)="fetch()">
+                    [options]="processes1" (onChange)="fetch()">
                 </p-dropdown>
                 
             </div>
