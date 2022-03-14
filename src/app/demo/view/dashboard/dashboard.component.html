@@ -77,20 +77,11 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
     <div class="card">
         <p-dataView #dv [value]="projectData" [paginator]="true" [rows]="3" filterBy="name"
             layout="grid">
-            <!-- <ng-template pTemplate="header">
-                <div class="flex flex-column md:flex-row md:justify-content-between">
-                    <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="mb-2 md:mb-0"></p-dropdown>
-                    <span class="p-input-icon-left mb-2 md:mb-0">
-                        <i class="pi pi-search"></i>
-                        <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($event.target.value)">
-                    </span>
-                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
-                </div>
-            </ng-template> -->
 
             <ng-template let-product pTemplate="gridItem">
                 <div>
-                    <div class="card" style="background-color: wheat; color: black ; cursor: pointer;" (dblclick)="onClick(product.Id)">
+                    <div class="card1" (dblclick)="onClick(product.Id)">
+                        
                         <div>
                             <div style="font-size: xx-large;">
                                 <i class="pi pi-tag product-category-icon" style="font-size: 2rem"></i>
