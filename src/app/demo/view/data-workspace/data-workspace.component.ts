@@ -16,6 +16,8 @@ export class DataWorkspaceComponent implements OnInit {
 
     processes: DataWorkspace[];
     selectedProcess!: DataWorkspace;
+    selectedRisks!: DataWorkspace;
+    risks: DataWorkspace[];
 
     constructor(private racmBuilderService: RacmBuilderService) {
         // this.processes = [{ name: 'Order to Cash' }, { name: 'Procure to pay' }, { name: 'Human Resource'}];
@@ -28,19 +30,18 @@ export class DataWorkspaceComponent implements OnInit {
             .getProcessDataByName(this.processName, this.projectId)
             .subscribe((data: any) => {
                 this.processes = data;
+                console.log("myprocess",this.processes);
+                
             });
     }
-    method() {
+    fetch() {
         this.cols = [
-            { field: "projectId", header: "Project ID" },
-            { field: "refId", header: "Ref ID" },
+            
             { field: "process", header: "Process" },
             { field: "subProcess", header: "subProcess" },
-            { field: "risk", header: "Risk" },
-            { field: "control", header: "Control" },
-            { field: "walkthrough", header: "Walkthrough" },
-            { field: "location", header: "Location" },
-            { field: "status", header: "Status" },
+            { field: "risk", header: "Existing Documents" },
+            { field: "control", header: "Workings upload" },
+            { field: "walkthrough", header: "Create visualization" }
         ];
     }
 }
