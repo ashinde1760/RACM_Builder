@@ -1,27 +1,50 @@
 <div class="dashboard">
-    <h3>Data Workspace</h3>
+    <h3> <b>Data Workspace</b></h3>
+
     <div class="p-grid">
-        <div class="p-col-12 p-md-6 p-lg-2">
-            <!-- <div class="stats"> -->
-            <div class="stats-icon">
-                <div>
-                <label>Process </label>
+        <div class="p-col-12 p-md-4 p-lg-4">
+            <div class="stats">
+                <div class="stats-icon">
+                    <img src="assets/layout/images/icon-mark.png" alt="california-layout" class="mark-icon" />
+                </div>
+                <br>
+                <label>Process </label><br><br>
                 <input pInputText [value]="processName" readonly>
             </div>
-            <div>
-                <label for="name">Sub Process </label><br>
-                <p-dropdown [(ngModel)]="selectedProcess" optionLabel="subProcess" placeholder="Select Proceses"
-                    [options]="processes" (onChange)="method()">
-                </p-dropdown>
-                <!-- <p-button (onClick)="method()">Display</p-button> -->
-            </div>
-               
-            </div>
-            
         </div>
-       
+        <div class="p-col-12 p-md-4 p-lg-4">
+            <div class="stats">
+                <div class="stats-icon">
+                    <img src="assets/layout/images/icon-mark.png" alt="california-layout" class="mark-icon" />
+                </div>
+                <br>
+                <label for="name">Sub Process </label><br><br>
+                <p-dropdown [(ngModel)]="selectedProcess" optionLabel="subProcess" placeholder="Select Proceses"
+                    [options]="processes1">
+                </p-dropdown>
+            </div>
+        </div>
+
+        
+        <div class="p-col-12 p-md-4 p-lg-4">
+            <div class="stats">
+                <div class="stats-icon">
+                    <img src="assets/layout/images/icon-mark.png" alt="california-layout" class="mark-icon" />
+                </div>
+                <br>
+                <label for="name">Risk </label><br><br>
+                <p-dropdown [(ngModel)]="selectedRisks" optionLabel="risk" placeholder="Select Risk"
+                    [options]="processes1" (onChange)="fetch()">
+                </p-dropdown>
+                
+            </div>
+        </div>
     </div>
-    <p-table [columns]="cols" [value]="processes" [rowHover]="true" [rows]="7" [paginator]="true"
+    
+    <br>
+    <br>
+
+    <!-- <p-table [columns]="cols" [value]="processes" [rowHover]="true" [rows]="7" [paginator]="true"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [scrollable]="true"
     responsiveLayout="scroll" scrollHeight="350px">
@@ -42,5 +65,66 @@
             </td>
         </tr>
     </ng-template>
-</p-table>
+</p-table> -->
+
+<!-- new table start -->
+
+
+<p-table styleClass="table" #dt [value]="processes"responsiveLayout="scroll"  [rows]="5" [paginator]="true" [globalFilterFields]="['request','auditName','assignedTo','targetDate','text1','attachment']" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+               
+            </ng-template>
+            
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="process">Process</th>
+                    <th pSortableColumn="subProcess">subProcess</th>
+                    <th pSortableColumn="TargetDate">Existing Documents</th>
+                    
+
+                    <th pSortableColumn="text1">Workings upload</th>
+                    
+                  
+
+                    <th>Create visualization</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-dataUploads>
+                <tr>
+                    
+                    <td>{{dataUploads.process}}</td>
+                    <td>{{dataUploads.subProcess}}</td>
+                   
+                    <td></td>
+                    <td>
+                        <p-fileUpload
+                        mode="basic"
+                        label="Upload File"
+                        chooseLabel="Upload File"
+                        name=""
+                        url=""
+                    ></p-fileUpload>
+                    </td>
+                    
+                    <td>
+                        <button pButton pRipple label="Create visualization" icon="pi pi-chart-line" class="p-button-success p-mr-2 p-mb-2" (click)="editRowData(dataUploads)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    In total there are {{dataUploads ? dataUploads.length : 0 }} Data upload requests...
+                </div>
+            </ng-template>
+        </p-table>
+
+<!-- new table end -->
+
+
+
+
 </div>
