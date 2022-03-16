@@ -151,6 +151,7 @@ import { DatauploadComponent } from './demo/view/dataupload/dataupload.component
 import { ReportGenerationComponent } from './demo/view/report-generation/report-generation.component';
 import { DataWorkspaceComponent } from './demo/view/data-workspace/data-workspace.component';
 import { OrgChartComponent } from './demo/view/org-chart/org-chart.component';
+import { IssueUpdateComponent } from './demo/view/issue-update/issue-update.component';
 
 
 
@@ -293,7 +294,8 @@ FullCalendarModule.registerPlugins([
         DatauploadComponent,
         ReportGenerationComponent,
         DataWorkspaceComponent,
-        OrgChartComponent
+        OrgChartComponent,
+        IssueUpdateComponent
     ],
     exports:[
         AppTopBarComponent

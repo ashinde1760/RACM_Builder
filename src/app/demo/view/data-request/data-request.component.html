@@ -293,19 +293,19 @@
             <p-editor [(ngModel)]="dataRequest.text1" [style]="{'height':'220px'}"></p-editor>
             
         </div>
-        <div class="p-field">
+        <!-- <div class="p-field">
             <label for="name">Attachment/Email</label>
             <input type="text" pInputText id="name" [(ngModel)]="dataRequest.attachment" required autofocus />
             <small class="p-invalid" *ngIf="submitted && !dataRequest.attachment">Name is required.</small>
-        </div>
+        </div> -->
 
         
     </ng-template>
 
     <ng-template pTemplate="footer">
-        <button pButton pRipple label="Save As Draft" icon="pi pi-save" class="p-button-text" (click)="hideDialog()"></button>
-        <button pButton pRipple label="Discard" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-        <button pButton pRipple label="Publish" icon="pi pi-check" class="p-button-text" (click)="publish()"></button>
+        <button pButton class="p-button-text" pRipple label="Save As Draft" icon="pi pi-save" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton class="p-button-text" pRipple label="Discard" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton class="p-button-text" pRipple label="Publish" icon="pi pi-check" class="p-button-text" (click)="publish()"></button>
     </ng-template>
 </p-dialog>
 

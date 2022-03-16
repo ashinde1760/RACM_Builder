@@ -261,6 +261,34 @@
       "endDate": "10/05/2020"
     }
   ],
+  "issueData": [
+    {
+      "process": "Order to Cash",
+      "projectId": "10002",
+      "subProcess": "Order Shipping",
+      "risk": "Compliance",
+      "refId": 50007,
+      "observation": "sample",
+      "rootCause": "demo",
+      "impact": "Compliance",
+      "walkthrough": "sample 1",
+      "control": "Control 2",
+      "id": 1
+    },
+    {
+      "process": "Order to Cash",
+      "projectId": "10002",
+      "subProcess": "Order Shipping",
+      "risk": "financial",
+      "refId": 50006,
+      "observation": "aaa",
+      "rootCause": "aaa",
+      "impact": "Financial",
+      "walkthrough": "sample",
+      "control": "Control 1",
+      "id": 2
+    }
+  ],
   "processData": [],
   "posts": [
     {

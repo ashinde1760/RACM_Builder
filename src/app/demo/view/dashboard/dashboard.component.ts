@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   constructor(private router:Router, private service:DashboardService, private racmService:RacmBuilderService) { }
 
   ngOnInit(): void {
-    this.service.get().subscribe(
+    this.service.getallProjectsData().subscribe(
       (data)=>{
         this.projectData=data;
         console.log(this.projectData);

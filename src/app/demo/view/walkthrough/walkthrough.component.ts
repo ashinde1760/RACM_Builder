@@ -35,16 +35,7 @@ export class WalkthroughComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        // this.racmService.get().subscribe((data) => {
-        //     this.racmData = data;
-        // //    console.log(this.racmData);
-        // });
-
-        // this.walkthroughService.get().subscribe((data) => {
-        //     this.racmData = this.racmData.concat(data);
-        //     console.log(this.racmData);
-        // });
-
+       
         this.processName = localStorage.getItem("processName");
         this.projectId = localStorage.getItem("projectId");
 
@@ -55,17 +46,14 @@ export class WalkthroughComponent implements OnInit {
             .subscribe((data: any) => {
                 console.log(data);
                 this.racmData = data;
-                console.log(this.racmData1, "getting this in walkthrough??");
+                console.log(this.racmData, "getting this in walkthrough??");
             });
 
         // this.racmData=[...this.racmData,...this.processMasterData];
         // console.log(this.racmData);
 
-
         // this.racmData=[...this.racmData,...this.processMasterData];
         // console.log(this.racmData);
-        
-
 
         this.racmCols = [
             // { field: "id", header: "Unique Ref#" },
@@ -73,6 +61,7 @@ export class WalkthroughComponent implements OnInit {
             { field: "risk", header: "Risk" },
             { field: "process", header: "Process" },
             { field: "subProcess", header: "Sub Process" },
+            { field: "walkthrough", header: "Walkthrough" },
         ];
 
         this._selectedColumns = this.racmCols;

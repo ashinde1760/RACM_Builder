@@ -90,7 +90,7 @@ export class RacmBuilderComponent {
 
         console.log(this.processName);
 
-        this.racmService.get(this.processName,this.projectId).subscribe(
+        this.racmService.getRacmData(this.processName,this.projectId).subscribe(
             (data) => {
                 this.racmInterfaces = data;
                 console.log(this.racmInterfaces, "all racm data");
@@ -161,7 +161,7 @@ export class RacmBuilderComponent {
                         Swal.fire("Saved!", "", "success");
                         //Logic for Update
                         this.racmService
-                            .put(this.racmInterface.refId, this.racmInterface)
+                            .editRacmData(this.racmInterface.refId, this.racmInterface)
                             .subscribe(
                                 (data: any) => {
                                     this.ngOnInit();
@@ -189,7 +189,7 @@ export class RacmBuilderComponent {
                 this.racmInterface.projectId=this.projectId;
                 //code for Saving New Client
 
-                this.racmService.post(this.racmInterface).subscribe(
+                this.racmService.addRacmData(this.racmInterface).subscribe(
                     (data: any) => {
                         this.ngOnInit();
                         this.messageService.add({
@@ -214,17 +214,17 @@ export class RacmBuilderComponent {
         this.submitted = false;
     }
 
-    deleteRowData(rowData: any) {
+    deleteRowData(id: number) {
         this.confirmatonService.confirm({
-            message: 'Are You sure you want to delete "' + rowData.id + '"?',
+            message: 'Are You sure you want to delete "' +id + '"?',
             header: "Confirm",
             icon: "pi pi-exclamation-triangle",
             accept: () => {
                 //calling delete mothod of service and passing id to delete that entry
-                this.racmService.delete(rowData.id).subscribe(() => {});
+                this.racmService.delete(id).subscribe(() => {});
                 //this code removes the deleted row from the table on the screen only and not from db
                 this.racmInterfaces = this.racmInterfaces.filter(
-                    (val) => val.id !== rowData.id
+                    (val) => val.id !== id
                 );
                 this.messageService.add({
                     severity: "success",
@@ -235,7 +235,7 @@ export class RacmBuilderComponent {
         });
     }
 
-    editRowData(racmInterface1: Racm) {
+    editRacmData(racmInterface1: Racm) {
         //this will open dialog box with the existing data prefilled and call saveData()
         this.racmInterface = { ...racmInterface1 };
 

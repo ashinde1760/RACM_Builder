@@ -28,6 +28,7 @@ import { WalkthroughComponent } from './demo/view/walkthrough/walkthrough.compon
 import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
 import { ReportGenerationComponent } from './demo/view/report-generation/report-generation.component';
 import { DataWorkspaceComponent } from './demo/view/data-workspace/data-workspace.component';
+import { IssueUpdateComponent } from './demo/view/issue-update/issue-update.component';
 
 @NgModule({
     imports: [
@@ -47,6 +48,7 @@ import { DataWorkspaceComponent } from './demo/view/data-workspace/data-workspac
                     {path:'uikit/dataWorkspace',component:DataWorkspaceComponent},
                     {path:'uikit/dataUpload',component:DatauploadComponent},
                     {path:'uikit/walkthrough',component:WalkthroughComponent},
+                    {path:'uikit/issueUpdate',component:IssueUpdateComponent},
                     {path:'uikit/report',component:ReportGenerationComponent},
                     {path: 'utilities/display', component: DisplayComponent},
                     {path: 'utilities/elevation', component: ElevationComponent},

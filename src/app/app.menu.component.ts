@@ -61,6 +61,11 @@ export class AppMenuComponent implements OnInit {
                 routerLink: ["/main/uikit/walkthrough"],
             },
             {
+                label:'Issue Update',
+                icon: "pi pi-fw pi-id-card",
+                routerLink:["/main/uikit/issueUpdate"]
+            },
+            {
                 label: "Report Generation",
                 icon: "pi pi-fw pi-id-card",
                 routerLink: ["/main/uikit/report"],
