@@ -43,8 +43,6 @@ export class RacmBuilderService {
 
   getRiskByName(pname:string,projectId:string,risk:string)
   {
-    console.log(risk,"shivvv");
-    
     return this.http.get<any>(`${environment.url+"/racmControlData"}?process=${pname}&projectId=${projectId}&risk=${risk}`);
   }
 }
