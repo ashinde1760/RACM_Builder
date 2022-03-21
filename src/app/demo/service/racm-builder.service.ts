@@ -37,7 +37,7 @@ export class RacmBuilderService {
     return this.http.put<any>('http://localhost:3000/racm/'+uRef,data);
   }
 
-  getProcessData(id:number){
+  getProcessData(id:number){    
     return this.http.get<any>(`${environment.url+"/racmControlData"}?projectId=${id}`);
   }
 }

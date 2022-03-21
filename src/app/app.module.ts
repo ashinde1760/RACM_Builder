@@ -150,7 +150,6 @@ import { ProcessMasterComponent } from './demo/view/process-master/process-maste
 import { DatauploadComponent } from './demo/view/dataupload/dataupload.component';
 import { ReportGenerationComponent } from './demo/view/report-generation/report-generation.component';
 import { DataWorkspaceComponent } from './demo/view/data-workspace/data-workspace.component';
-import { OrgChartComponent } from './demo/view/org-chart/org-chart.component';
 
 
 
@@ -162,6 +161,7 @@ FullCalendarModule.registerPlugins([
 
 @NgModule({
     imports: [
+        ToastModule,
         OrganizationChartModule,
         EditorModule,
         BrowserModule,
@@ -293,7 +293,6 @@ FullCalendarModule.registerPlugins([
         DatauploadComponent,
         ReportGenerationComponent,
         DataWorkspaceComponent,
-        OrgChartComponent
     ],
     exports:[
         AppTopBarComponent

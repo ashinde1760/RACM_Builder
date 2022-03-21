@@ -8,7 +8,7 @@ export class DashboardService {
 
   constructor(private http:HttpClient) { }
 
-  get(){
+  getProjects(){
     return this.http.get<any>('http://localhost:3000/projects');
   }
 }
