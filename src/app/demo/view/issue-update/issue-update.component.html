@@ -161,7 +161,7 @@
                 <td *ngFor="let j of columns">{{ rowData[j.field] }}</td>
                 <td><p-fileUpload mode="basic" chooseLabel="Upload Annexure" name="" url="" (uploadHandler)="myUploader($event)"></p-fileUpload></td>
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(rowData.id)"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(rowData)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(rowData.id)"></button>
                 </td>
             </tr>

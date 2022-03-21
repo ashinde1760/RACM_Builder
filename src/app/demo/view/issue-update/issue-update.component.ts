@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from "@angular/core";
 import { IssueUpdateService } from "../../service/issue-update.service";
 import { RacmBuilderService } from "../../service/racm-builder.service";
 import { Issue } from "./model/issues";
+import Swal from "sweetalert2";
+import { ConfirmationService, MessageService } from "primeng/api";
 
 interface Impact {
     impact: string;
@@ -11,6 +13,7 @@ interface Impact {
     selector: "app-issue-update",
     templateUrl: "./issue-update.component.html",
     styleUrls: ["./issue-update.component.scss"],
+    providers: [MessageService, ConfirmationService],
 })
 export class IssueUpdateComponent implements OnInit {
     processName!: string;
@@ -28,14 +31,19 @@ export class IssueUpdateComponent implements OnInit {
     rootCause: string;
 
     issueData!: Issue;
+    issueDatas: Issue[] = [];
     allIssueData: Issue[];
 
     issueCols!: any[];
     _selectedColumns: any[];
 
+    submitted: boolean;
+
     constructor(
         private racmService: RacmBuilderService,
-        private issue: IssueUpdateService
+        private issue: IssueUpdateService,
+        private messageService: MessageService,
+        private confirmatonService: ConfirmationService
     ) {
         this.impact = [
             { impact: "Financial" },
@@ -94,6 +102,7 @@ export class IssueUpdateComponent implements OnInit {
     }
 
     openDialog() {
+        this.issueData = {};
         this.dialogBox = true;
     }
 
@@ -102,28 +111,55 @@ export class IssueUpdateComponent implements OnInit {
     }
 
     onSumbit() {
+        this.submitted = true;
+        console.log(this.issueData, "aaaaaaaa");
+
+        if (this.issueData.id) {
+          this.dialogBox=false;
+          alert(this.issueData.id+" is present")
+             this.allIssueData[this.findIndexById(this.issueData.id)]=this.issueData;
+              console.log(this.issueData,'tasdiq');
+              
+            this.issue
+                .editIssueData(this.issueData.id, this.issueData)
+                .subscribe(
+                    (data) => {
+                        console.log(data,"shivvvv");
+                        this.ngOnInit();
+                    },
+                    (error) => {
+                        alert(error + " something went wrong");
+                    }
+                );
+        } else {
+            this.issueData.issueId = this.createId();
+            this.issueData.process = this.processName;
+            this.issueData.projectId = this.projectId;
+            this.issueData.subProcess = this.selectedSubProcess["subProcess"];
+            this.issueData.risk = this.selectedRisk["risk"];
+            this.issueData.refId = this.refID;
+            this.issueData.observation = this.observation;
+            this.issueData.rootCause = this.rootCause;
+            this.issueData.impact = this.selectedImpact["impact"];
+            this.issueData.walkthrough = this.singleRiskData["walkthrough"];
+            this.issueData.control = this.singleRiskData["control"];
+
+            this.issue.addIssue(this.issueData).subscribe(
+                (data) => {
+                    console.log(data, "issue data");
+                    this.ngOnInit();
+                    this.dialogBox = false;
+                },
+                (error) => {
+                    alert("something went wrong");
+                }
+            );
+        }
+    }
+
+    hideDialog() {
         this.dialogBox = false;
-
-        this.issueData = {};
-        this.issueData.process = this.processName;
-        this.issueData.projectId = this.projectId;
-        this.issueData.subProcess = this.selectedSubProcess["subProcess"];
-        this.issueData.risk = this.selectedRisk["risk"];
-        this.issueData.refId = this.refID;
-        this.issueData.observation = this.observation;
-        this.issueData.rootCause = this.rootCause;
-        this.issueData.impact = this.selectedImpact["impact"];
-        this.issueData.walkthrough = this.singleRiskData["walkthrough"];
-        this.issueData.control = this.singleRiskData["control"];
-
-        this.issue.addIssue(this.issueData).subscribe(
-            (data) => {
-                console.log(data, "issue data");
-            },
-            (error) => {
-                alert("something went wrong");
-            }
-        );
+        this.submitted = false;
     }
 
     riskData() {
@@ -144,11 +180,44 @@ export class IssueUpdateComponent implements OnInit {
             );
     }
 
-    editProduct(id: string) {
-      alert(id)
+    editProduct(issueData1: Issue) {
+        this.issueData = { ...issueData1 };
+        console.log(issueData1, "anemoi");
+
+        this.dialogBox = true;
     }
 
     deleteProduct(id: string) {
-      alert(id)
+      console.log("aaa");
+      this.issue.deleteIssue(id).subscribe(
+        (data) => {
+          alert("deleted sucess")
+          this.ngOnInit();
+        },
+        (error)=>{
+          alert("error")
+        });
+    }
+
+    findIndexById(id: string): number {
+        let index = -1;
+        for (let i = 0; i < this.allIssueData.length; i++) {
+            if (this.allIssueData[i].id === id) {
+                index = i;
+                break;
+            }
+        }
+        console.log("inside find index by id" + index);
+
+        return index;
+    }
+
+    createId(): string {
+        let id = "";
+        var chars = "0123456789";
+        for (var i = 0; i < 4; i++) {
+            id += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return id;
     }
 }

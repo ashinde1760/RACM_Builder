@@ -1,5 +1,6 @@
 export interface Issue{
-    // issueId:number;
+    id?:string;
+    issueId?:string;
     refId?:string;
     process?:string;
     subProcess?:string;

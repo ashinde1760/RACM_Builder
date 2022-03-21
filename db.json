@@ -155,55 +155,7 @@
       "status": "In Progress"
     }
   ],
-  "racm": [
-    {
-      "objective": "Audit Of Order Shipping",
-      "frequency": "weekly",
-      "refId": "6400",
-      "process": "Order to Cash",
-      "subProcess": "Order Shipping",
-      "risk": "packaging malfunctions",
-      "control": "package quality tester need to setup",
-      "typeOfControl": "Automated",
-      "status": "incomplete",
-      "projectId": "10002",
-      "id": 1
-    }
-  ],
-  "racmData": [
-    {
-      "refId": 50001,
-      "process": "Human Resource",
-      "subProcess": "Hiring Budget",
-      "risk": "Brand",
-      "control": "Control 1",
-      "walkthrough": "sample"
-    },
-    {
-      "refId": 50002,
-      "process": "Human Resource",
-      "subProcess": "Hiring Budget",
-      "risk": "Financial Risk",
-      "control": "Control 2",
-      "walkthrough": "sample1"
-    },
-    {
-      "refId": 50003,
-      "process": "Human Resource",
-      "subProcess": "Manpower plan",
-      "risk": "Brand",
-      "control": "Control 1",
-      "walkthrough": "sample"
-    },
-    {
-      "refId": 50004,
-      "process": "Order to Cash",
-      "subProcess": "",
-      "risk": "Brand",
-      "control": "Control 1",
-      "walkthrough": "sample"
-    }
-  ],
+  "racm": [],
   "datareq": [
     {
       "request": "Data Needed for salary Audit",
@@ -220,16 +172,6 @@
       "text1": "<p>Hi Jay ,</p><p><br></p><p>Hope You Are Doing Fine. I need all in out details of persons. can you please send to me asap.</p><p><br></p><p>Thanks</p>",
       "rangeDates": "2022-03-16T18:30:00.000Z",
       "id": 2
-    }
-  ],
-  "processMaster": [
-    {
-      "process": "PM Process 1",
-      "subProcess": "PM Sprocess 1"
-    },
-    {
-      "process": "PM Process 2",
-      "subProcess": "PM Sprocess 2"
     }
   ],
   "projects": [
@@ -263,48 +205,18 @@
   ],
   "issueData": [
     {
-      "process": "Order to Cash",
-      "projectId": "10002",
-      "subProcess": "Order Shipping",
-      "risk": "Compliance",
-      "refId": 50007,
-      "observation": "sample",
-      "rootCause": "demo",
-      "impact": "Compliance",
-      "walkthrough": "sample 1",
-      "control": "Control 2",
-      "id": 1
-    },
-    {
+      "issueId": "8220",
       "process": "Order to Cash",
       "projectId": "10002",
       "subProcess": "Order Shipping",
       "risk": "financial",
       "refId": 50006,
-      "observation": "aaa",
-      "rootCause": "aaa",
-      "impact": "Financial",
+      "observation": "NA",
+      "rootCause": "NA",
+      "impact": "Operational",
       "walkthrough": "sample",
       "control": "Control 1",
-      "id": 2
+      "id": 1
     }
-  ],
-  "processData": [],
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
