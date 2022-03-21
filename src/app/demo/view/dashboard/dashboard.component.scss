@@ -34,4 +34,86 @@
         cursor: pointer;
     }
 }
+.DataTable{
+margin-top: 10px;
+}
 
+// @media screen and (max-width: 576px) {
+// 	:host ::ng-deep .product-list-item {
+// 		flex-direction: column;
+// 		align-items: center;
+
+// 		img {
+// 			width: 75%;
+// 			margin: 2rem 0;
+// 		}
+
+// 		.product-list-detail {
+// 			text-align: center;
+// 		}
+
+// 		.product-price {
+// 			align-self: center;
+// 		}
+
+// 		.product-list-action {
+// 			display: flex;
+// 			flex-direction: column;
+// 		}
+
+// 		.product-list-action {
+// 			margin-top: 2rem;
+// 			flex-direction: row;
+// 			justify-content: space-between;
+// 			align-items: center;
+// 			width: 100%;
+// 		}
+// 	}
+// }
+// below is for org chart
+:host ::ng-deep .p-organizationchart {
+    // background-color: rgb(229, 182, 182);
+    size: 100%;
+    // width: max-content;    
+    // padding: 5px;
+    // box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    // border-radius: 20px;
+    .p-person {
+        padding: 0;
+        border: 0 none;
+    }
+
+    .node-header, .node-content {
+        padding: .5em .7rem;
+    }
+
+    .node-header {
+        background-color: #0b7ad1;
+        color: #ffffff;
+    }
+
+    .node-content {
+        text-align: center;
+        border: 1px solid #6A1B9A;
+    }
+
+    .node-content img {
+        border-radius: 50%;
+    }
+
+    .department-cfo {
+        background-color: ivory;
+        color: #0b7ad1;
+        font-weight: bold;
+    }
+
+    // .department-coo {
+    //     background-color: #3e3c42;
+    //     color: #ffffff;
+    // }
+
+    // .department-cto {
+    //     background-color: #3f3947;
+    //     color: #ffffff;
+    // }
+}

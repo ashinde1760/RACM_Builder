@@ -63,8 +63,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
 
 
 <div>
-    <div class="layout-topbar">
- 
+    <div class="layout-topbar"> 
 
         <div fxLayout="row" fxLayoutAlign="space-between center" style="color: white;">
             <img src="assets/layout/images/pwc-logo.jpg" style="width: 150px; margin-top: 3px; margin-left: 5px;" alt="PWC-logo"/>
@@ -74,7 +73,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
     </div>
 
 
-    <div class="card">
+    <div class="card"> 
         <p-dataView #dv [value]="projectData" [paginator]="true" [rows]="3" filterBy="name"
             layout="grid">
 
@@ -114,20 +113,41 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
                 </div>
             </ng-template>
             </p-dataView>
+<!-- <div *ngIf="orgChart"> -->
+<!-- <app-org-chart></app-org-chart> -->
+</div> 
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<div class="card" fxLayout="row" fxLayoutAlign="center center" >
+    <div class="node-header">
+        <div class="p-person">
+            <div class="p-organizationchart">
+                <!-- <div class="department-cfo"> -->
+                    <!-- <div class="department-cto"> -->
+                        <!-- <div class="div department-coo"> -->
+                            <!-- <h2>Organization chart</h2> -->
+                            <p-organizationChart [value]="orgChartData" selectionMode="single"
+                                [(selection)]="selectedNode" (onNodeSelect)="onNodeSelect($event)" styleClass="company">
 
+                                <ng-template let-node pTemplate="person">
+                                    <div class="node-header p-corner-top">{{node.label}}</div>
+                                    <div class="node-content">
+                                        <div>{{node.data.name}}</div>
+                                    </div>
+                                </ng-template>
+                                <!-- <ng-template let-node pTemplate="department"> -->
+                                <!-- {{node.data.name} -->
+                                <!-- </ng-template> -->
+                            </p-organizationChart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div>
+    </div>
+</div> -->
 
-
-
-
-
-
-
-
-
-
-
-<div>
-    <p-table [value]="processData" dataKey="name">
+<div class="DataTable">
+    <p-table [value]="processData" dataKey="name" >
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="id">Process Id <p-sortIcon field="processId"></p-sortIcon></th>
